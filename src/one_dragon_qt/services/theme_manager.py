@@ -1,3 +1,4 @@
+from one_dragon.utils.i18_utils import gt
 from PySide6.QtGui import QColor
 from qfluentwidgets import setThemeColor
 
@@ -19,7 +20,7 @@ class ThemeManager:
         :param color: RGB颜色元组 (R, G, B)
         """
         if not isinstance(color, tuple) or len(color) != 3:
-            raise ValueError("颜色必须是包含3个整数的元组 (R, G, B)")
+            raise ValueError(gt(gt("颜色必须是包含3个整数的元组 (R, G, B)")))
 
         # 显式转换并验证范围
         try:
@@ -27,7 +28,7 @@ class ThemeManager:
         except (ValueError, TypeError, IndexError):
             raise ValueError("颜色必须是包含3个整数的元组 (R, G, B)")
         if not all(0 <= c <= 255 for c in (r, g, b)):
-            raise ValueError("颜色值必须在0-255范围内")
+            raise ValueError(gt("颜色值必须在0-255范围内"))
 
         # 如果颜色没有变化，直接返回，避免不必要的样式刷新
         if cls._current_color == (r, g, b):

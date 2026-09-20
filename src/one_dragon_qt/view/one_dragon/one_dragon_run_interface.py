@@ -48,7 +48,7 @@ class OneDragonRunInterface(SplitAppRunInterface):
     run_all_apps_signal = Signal()
 
     def __init__(self, ctx: OneDragonContext,
-                 nav_text_cn: str = '一条龙运行',
+                 nav_text_cn: str = gt('一条龙运行'),
                  object_name: str = 'one_dragon_run_interface',
                  need_multiple_instance: bool = True,
                  help_url: str | None = None, parent=None):
@@ -86,19 +86,19 @@ class OneDragonRunInterface(SplitAppRunInterface):
             self.help_opt = HelpCard(url=self.help_url)
             run_group.addSettingCard(self.help_opt)
 
-        self.notify_switch = SwitchSettingCard(icon=FluentIcon.INFO, title='应用通知')
+        self.notify_switch = SwitchSettingCard(icon=FluentIcon.INFO, title=gt('应用通知'))
         self.notify_btn = PushButton(text=gt('设置'), icon=FluentIcon.SETTING)
         self.notify_btn.clicked.connect(self._on_notify_setting_clicked)
         self.notify_switch.hBoxLayout.addWidget(self.notify_btn, 0, Qt.AlignmentFlag.AlignRight)
         self.notify_switch.hBoxLayout.addSpacing(16)
         run_group.addSettingCard(self.notify_switch)
 
-        self.instance_run_opt = ComboBoxSettingCard(icon=FluentIcon.PEOPLE, title='运行实例',
+        self.instance_run_opt = ComboBoxSettingCard(icon=FluentIcon.PEOPLE, title=gt('运行实例'),
                                                     options_enum=InstanceRun)
         self.instance_run_opt.value_changed.connect(self._on_instance_run_changed)
         run_group.addSettingCard(self.instance_run_opt)
 
-        self.after_done_opt = ComboBoxSettingCard(icon=FluentIcon.CALENDAR, title='结束后',
+        self.after_done_opt = ComboBoxSettingCard(icon=FluentIcon.CALENDAR, title=gt('结束后'),
                                                   options_enum=AfterDoneOpEnum)
         self.after_done_opt.value_changed.connect(self._on_after_done_changed)
         run_group.addSettingCard(self.after_done_opt)
@@ -171,7 +171,7 @@ class OneDragonRunInterface(SplitAppRunInterface):
         """
         self.ctx.one_dragon_config.after_done = value
         if value != AfterDoneOpEnum.SHUTDOWN.value.value:
-            log.info('已取消关机计划')
+            log.info(gt('已取消关机计划'))
             cmd_utils.cancel_shutdown_sys()
 
     def _on_app_runner_finished(self) -> None:
@@ -193,7 +193,7 @@ class OneDragonRunInterface(SplitAppRunInterface):
 
     def run_app(self) -> None:
         if self.app_runner.isRunning():
-            log.error('已有应用在运行中')
+            log.error(gt(gt('已有应用在运行中')))
             return
         self.app_runner.app_id = self.app_id
         self.app_runner.start()

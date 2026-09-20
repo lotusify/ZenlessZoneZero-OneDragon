@@ -1,3 +1,4 @@
+from one_dragon.utils.i18_utils import gt
 import os
 
 from PySide6.QtCore import Qt, QTimer
@@ -91,7 +92,7 @@ class ScrollCreditsWidget(QWidget):
         self.content_layout.addWidget(self.title_label)
 
         # 子标题
-        self.subtitle_label = QLabel("特别鸣谢")
+        self.subtitle_label = QLabel(gt("特别鸣谢"))
         self.subtitle_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.subtitle_label.setStyleSheet(f"""
             QLabel {{
@@ -113,7 +114,7 @@ class ScrollCreditsWidget(QWidget):
         self.content_layout.addWidget(self.credits_container)
 
         # 结尾标语
-        self.end_label = QLabel("感谢您的支持与陪伴")
+        self.end_label = QLabel(gt("感谢您的支持与陪伴"))
         self.end_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.end_label.setStyleSheet(f"""
             QLabel {{
@@ -150,7 +151,7 @@ class ScrollCreditsWidget(QWidget):
 
             if not os.path.exists(contributors_file):
                 # 如果文件不存在，显示提示
-                no_file_label = QLabel("contributors.yaml文件不存在")
+                no_file_label = QLabel(gt("contributors.yaml文件不存在"))
                 no_file_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
                 no_file_label.setStyleSheet("""
                     QLabel {
@@ -173,8 +174,8 @@ class ScrollCreditsWidget(QWidget):
             # core_contributors 和 documentation_contributors 中的每个项目是独立的贡献者
             # community_maintainers, recent_contributors, other_contributors 可能包含分组
             categories_individual = [
-                ('core_contributors', '核心贡献者', 'core'),
-                ('documentation_contributors', '文档贡献者', 'documentation')
+                ('core_contributors', gt('核心贡献者'), 'core'),
+                ('documentation_contributors', gt('文档贡献者'), 'documentation')
             ]
 
             # 为个体贡献者类别添加标题和内容
@@ -206,9 +207,9 @@ class ScrollCreditsWidget(QWidget):
 
             # 处理可能包含分组的类别
             categories_grouped = [
-                ('community_maintainers', '社区维护者', 'community'),
-                ('recent_contributors', '近期贡献者', 'recent'),
-                ('other_contributors', '其他贡献者', 'other')
+                ('community_maintainers', gt('社区维护者'), 'community'),
+                ('recent_contributors', gt('近期贡献者'), 'recent'),
+                ('other_contributors', gt('其他贡献者'), 'other')
             ]
 
             for category_key, display_name, category_type in categories_grouped:
@@ -252,7 +253,7 @@ class ScrollCreditsWidget(QWidget):
 
             # 如果没有贡献者信息，显示提示
             if not all_contributors:
-                no_data_label = QLabel("未获取到贡献者信息")
+                no_data_label = QLabel(gt("未获取到贡献者信息"))
                 no_data_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
                 no_data_label.setStyleSheet("""
                     QLabel {
@@ -264,9 +265,9 @@ class ScrollCreditsWidget(QWidget):
                 self.credits_layout.addWidget(no_data_label)
 
         except Exception as e:
-            log.error(f"加载贡献者数据失败: {e}")
+            log.error(f"gt(加载贡献者数据失败: ){e}")
             # 添加错误信息
-            error_label = QLabel(f"加载贡献者信息失败: {str(e)}")
+            error_label = QLabel(f"gt(加载贡献者信息失败: ){str(e)}")
             error_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
             error_label.setStyleSheet("""
                 QLabel {
@@ -307,12 +308,12 @@ class ScrollCreditsWidget(QWidget):
             name_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
             name_label.setStyleSheet(f"""
                 QLabel {{
-                    color: {text_color};  /* 根据主题设置文字颜色 */
+                    color: {text_color}gt(;  /* 根据主题设置文字颜色 */
                     font-size: 20px;
                     font-weight: bold;
                     padding: 10px;
                     font-family: Arial, sans-serif;
-                    border-bottom: 1px solid {border_color};
+                    border-bottom: 1px solid ){border_color};
                     margin-bottom: 10px;
                 }}
             """)
@@ -332,13 +333,13 @@ class ScrollCreditsWidget(QWidget):
         # 使用主题适配的颜色
         name_label.setStyleSheet(f"""
             QLabel {{
-                color: {main_text_color};  /* 根据主题设置文字颜色 */
+                color: {main_text_color}gt(;  /* 根据主题设置文字颜色 */
                 font-size: 18px;
                 font-weight: bold;
                 padding: 5px;
                 font-family: Arial, sans-serif;
             }}
-        """)
+        )""")
 
         layout.addWidget(name_label)
 
@@ -353,12 +354,12 @@ class ScrollCreditsWidget(QWidget):
 
             members_label.setStyleSheet(f"""
                 QLabel {{
-                    color: {secondary_text_color};  /* 根据主题设置文字颜色 */
+                    color: {secondary_text_color}gt(;  /* 根据主题设置文字颜色 */
                     font-size: 16px;
                     padding: 10px 20px;  /* 增加内边距以适应多行文本 */
                     font-family: Arial, sans-serif;
                 }}
-            """)
+            )""")
             layout.addWidget(members_label)
             return widget
 
@@ -368,13 +369,13 @@ class ScrollCreditsWidget(QWidget):
             role_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
             role_label.setStyleSheet(f"""
                 QLabel {{
-                    color: {secondary_text_color};  /* 根据主题设置文字颜色 */
+                    color: {secondary_text_color}gt(;  /* 根据主题设置文字颜色 */
                     font-size: 16px;
                     padding: 5px;
                     font-style: italic;
                     font-family: Arial, sans-serif;
                 }}
-            """)
+            )""")
             layout.addWidget(role_label)
 
         # 贡献次数（如果存在）
@@ -384,12 +385,12 @@ class ScrollCreditsWidget(QWidget):
 
             contributions_label.setStyleSheet(f"""
                 QLabel {{
-                    color: {light_text_color};  /* 根据主题设置文字颜色 */
+                    color: {light_text_color}gt(;  /* 根据主题设置文字颜色 */
                     font-size: 14px;
                     padding: 5px;
                     font-family: Arial, sans-serif;
                 }}
-            """)
+            )""")
             layout.addWidget(contributions_label)
 
         return widget

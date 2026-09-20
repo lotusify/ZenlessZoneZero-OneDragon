@@ -44,7 +44,7 @@ class LauncherVersionChecker(QThread):
             )
         except Exception:
             # 检查失败也要发出信号 否则界面会永远停在检查中且按钮不可用
-            log.error('获取启动器版本信息失败', exc_info=True)
+            log.error(gt('获取启动器版本信息失败'), exc_info=True)
             current_version, latest_stable, latest_beta = '', '', ''
         self.check_finished.emit(current_version, latest_stable, latest_beta)
 
@@ -79,8 +79,8 @@ class LauncherDownloadCard(ZipDownloaderSettingCard):
 
         # 通道选项：稳定版 / 测试版
         self.set_options_by_list([
-            ConfigItem('稳定版', 'stable'),
-            ConfigItem('测试版', 'beta')
+            ConfigItem(gt('稳定版'), 'stable'),
+            ConfigItem(gt('测试版'), 'beta')
         ])
 
     def _get_downloader_param(self, _idx: int | None = None) -> CommonDownloaderParam:

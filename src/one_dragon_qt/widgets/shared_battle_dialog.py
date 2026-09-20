@@ -20,7 +20,7 @@ from one_dragon.utils.i18_utils import gt
 from one_dragon_qt.services.styles_manager import OdQtStyleSheet
 
 BASE_URL = "http://116.205.232.21"
-COLUMN_HEADERS = ["配置名称", "上传者", "上传时间"]
+COLUMN_HEADERS = [gt("配置名称"), gt("上传者"), gt("上传时间")]
 CONFIG_FOLDER = "config/auto_battle"
 
 
@@ -115,7 +115,7 @@ class SharedConfigDialog(FramelessDialog):
             if os.path.exists(os.path.join(current_path, marker)):
                 return current_path
             if current_path == os.path.dirname(current_path):
-                raise FileNotFoundError(f"无法找到包含 {marker} 的项目根目录")
+                raise FileNotFoundError(f"gt(无法找到包含 ){marker}gt( 的项目根目录)")
             current_path = os.path.dirname(current_path)
 
     def save_downloaded_file(self, file_name, data, base_folder):

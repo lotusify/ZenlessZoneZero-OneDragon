@@ -42,8 +42,8 @@ class HistoryMixin:
 
         self.history_opt = MultiPushSettingCard(
             icon=FluentIcon.HISTORY,
-            title='历史记录',
-            content='Ctrl+Z 撤回，Ctrl+Shift+Z 恢复',
+            title=gt('历史记录'),
+            content=gt('Ctrl+Z 撤回，Ctrl+Shift+Z 恢复'),
             btn_list=[self.undo_btn, self.redo_btn]
         )
 
@@ -182,18 +182,18 @@ class HistoryMixin:
         检查是否有有效的操作上下文
         :return: 是否可以进行撤回/恢复操作
         """
-        raise NotImplementedError("子类必须实现 _has_valid_context 方法")
+        raise NotImplementedError(gt("子类必须实现 _has_valid_context 方法"))
 
     def _apply_undo(self, change_record: Dict[str, Any]) -> None:
         """
         应用撤回操作
         :param change_record: 历史记录
         """
-        raise NotImplementedError("子类必须实现 _apply_undo 方法")
+        raise NotImplementedError(gt("子类必须实现 _apply_undo 方法"))
 
     def _apply_redo(self, change_record: Dict[str, Any]) -> None:
         """
         应用恢复操作
         :param change_record: 历史记录
         """
-        raise NotImplementedError("子类必须实现 _apply_redo 方法")
+        raise NotImplementedError(gt("子类必须实现 _apply_redo 方法"))

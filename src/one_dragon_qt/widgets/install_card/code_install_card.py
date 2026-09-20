@@ -25,10 +25,10 @@ class CodeInstallCard(BaseInstallCard):
         BaseInstallCard.__init__(
             self,
             ctx=ctx,
-            title_cn='代码版本',
+            title_cn=gt('代码版本'),
             install_method=self.fetch_latest_code,
             install_btn_icon=FluentIcon.SYNC,
-            install_btn_text_cn='代码同步',
+            install_btn_text_cn=gt('代码同步'),
             parent=parent,
             left_widgets=[self.git_branch_opt]
         )

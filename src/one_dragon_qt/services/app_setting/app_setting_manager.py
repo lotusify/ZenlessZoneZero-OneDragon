@@ -10,6 +10,7 @@
 
 from __future__ import annotations
 
+from one_dragon.utils.i18_utils import gt
 from collections.abc import Callable
 from pathlib import Path
 from typing import TYPE_CHECKING, Any
@@ -139,7 +140,7 @@ class AppSettingManager(QObject):
                     continue
                 self._try_register_provider(setting_file, info.source, base_dir, seen_app_ids)
 
-        log.info(f"发现 {len(self._app_setting_map)} 个应用设置提供者")
+        log.info(f"gt(发现 ){len(self._app_setting_map)}gt( 个应用设置提供者)")
 
     def _try_register_provider(
         self,
@@ -152,12 +153,12 @@ class AppSettingManager(QObject):
         try:
             provider = self._load_provider(setting_file, source, base_dir)
         except Exception:
-            log.warning(f"加载应用设置文件失败: {setting_file}", exc_info=True)
+            log.warning(f"gt(加载应用设置文件失败: ){setting_file}", exc_info=True)
             return
         if provider is None:
             return
         if provider.app_id in seen_app_ids:
-            log.warning(f"重复的应用设置 app_id '{provider.app_id}'，跳过: {setting_file}")
+            log.warning(f"gt(重复的应用设置 app_id '){provider.app_id}gt('，跳过: ){setting_file}")
             return
 
         seen_app_ids.add(provider.app_id)
@@ -173,7 +174,7 @@ class AppSettingManager(QObject):
         """动态导入 setting 文件并查找唯一的 AppSettingProvider 子类。"""
         result = resolve_module_name(setting_file, source, base_dir)
         if result is None:
-            log.warning(f"无法解析模块路径: {setting_file}")
+            log.warning(f"gt(无法解析模块路径: ){setting_file}")
             return None
 
         module_name, module_root = result
@@ -197,7 +198,7 @@ class AppSettingManager(QObject):
             return None
         if len(found) > 1:
             names = [cls.__name__ for cls in found]
-            log.warning(f"模块 {module_name} 中发现多个 AppSettingProvider: {names}，仅使用第一个")
+            log.warning(f"gt(模块 ){module_name}gt( 中发现多个 AppSettingProvider: ){names}gt(，仅使用第一个)")
         return found[0]()
 
     # ─── UI 分发 ──────────────────────────────────────────

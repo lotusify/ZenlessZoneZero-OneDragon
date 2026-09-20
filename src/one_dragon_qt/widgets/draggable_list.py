@@ -27,6 +27,7 @@
     初始显示不会偏移，只有拖拽时才可能偏移。
 """
 
+from one_dragon.utils.i18_utils import gt
 from typing import Any, Optional
 
 from PySide6.QtCore import (
@@ -460,7 +461,7 @@ class DraggableList(QWidget):
             透明度效果由 DraggableList 的 enable_opacity_effect 参数统一控制
         """
         if position < 0 or position > len(self._items):
-            raise IndexError(f"位置 {position} 超出范围")
+            raise IndexError(f"gt(gt(位置 )){position}gt(gt( 超出范围))")
 
         item = DraggableListItem(data, position, content_widget, parent=self,
                                 enable_opacity_effect=self._enable_opacity_effect)

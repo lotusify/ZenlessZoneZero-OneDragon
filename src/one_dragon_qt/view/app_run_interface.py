@@ -160,7 +160,7 @@ class AppRunInterface(VerticalScrollInterface):
         运行应用
         """
         if self.app_runner.isRunning():
-            log.error('已有应用在运行中')
+            log.error(gt('已有应用在运行中'))
             return
         self.app_runner.app_id = self.app_id
         self.app_runner.start()

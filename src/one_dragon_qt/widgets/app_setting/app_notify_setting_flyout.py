@@ -51,13 +51,13 @@ class AppNotifySettingFlyout(FlyoutViewBase):
 
         self.lifecycle_opt = ComboBoxSettingCard(
             icon='',
-            title='应用通知',
+            title=gt('应用通知'),
             margins=self.card_margins,
             options_enum=NotifyLifecycleMode,
         )
         self.detail_opt = ComboBoxSettingCard(
             icon='',
-            title='节点通知',
+            title=gt('节点通知'),
             margins=self.card_margins,
             options_enum=NotifyDetailMode,
         )

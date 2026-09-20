@@ -38,7 +38,7 @@ class SourceConfigInterface(VerticalScrollInterface):
             content_widget=None,
             object_name='source_config_interface',
             parent=parent,
-            nav_text_cn='源配置',
+            nav_text_cn=gt('源配置'),
             nav_icon=FluentIcon.GLOBE
         )
         self.ctx = ctx
@@ -61,7 +61,7 @@ class SourceConfigInterface(VerticalScrollInterface):
 
         self.region_opt = ComboBoxSettingCard(
             icon=FluentIcon.GLOBE,
-            title='地区选择',
+            title=gt('地区选择'),
             options_list=self.ctx.repo_config.region_options
         )
         self.region_opt.value_changed.connect(self._on_region_changed)
@@ -95,28 +95,28 @@ class SourceConfigInterface(VerticalScrollInterface):
 
         self.repository_url_opt = ComboBoxSettingCard(
             icon=FluentIcon.CODE,
-            title='代码仓库',
-            content='自动模式优先使用上次成功源',
+            title=gt('代码仓库'),
+            content=gt('自动模式优先使用上次成功源'),
             options_list=self.ctx.repo_config.repository_options,
         )
         self.repository_url_opt.value_changed.connect(lambda: self.ctx.git_service.update_remote())
 
         self.env_source_opt = ComboBoxSettingCard(
             icon=FluentIcon.CLOUD_DOWNLOAD,
-            title='环境下载源',
+            title=gt('环境下载源'),
             options_list=self.ctx.repo_config.get_source_options('env_source'),
         )
 
         self.pip_source_opt = ComboBoxSettingCard(
             icon=FluentIcon.APPLICATION,
-            title='Pip源',
+            title=gt('Pip源'),
             options_list=self.ctx.repo_config.get_source_options('pip_source'),
         )
 
         self.resource_source_opt = ComboBoxSettingCard(
             icon=FluentIcon.CLOUD,
-            title='资源下载源',
-            content='模型等资源的下载源 自动模式按系统语言推荐',
+            title=gt('资源下载源'),
+            content=gt('模型等资源的下载源 自动模式按系统语言推荐'),
             options_list=build_resource_source_options(self.ctx.env_config),
         )
 
@@ -135,12 +135,12 @@ class SourceConfigInterface(VerticalScrollInterface):
 
         self.proxy_type_opt = ComboBoxSettingCard(
             icon=FluentIcon.GLOBE,
-            title='代理类型',
+            title=gt('代理类型'),
             options_enum=ProxyTypeEnum
         )
         self.proxy_type_opt.value_changed.connect(self._update_proxy_ui)
 
-        self.proxy_url_input = TextSettingCard(icon=FluentIcon.WIFI, title='代理地址')
+        self.proxy_url_input = TextSettingCard(icon=FluentIcon.WIFI, title=gt('代理地址'))
 
         proxy_group.addSettingCards([self.proxy_type_opt, self.proxy_url_input])
         advanced_group.addSettingCard(proxy_group)

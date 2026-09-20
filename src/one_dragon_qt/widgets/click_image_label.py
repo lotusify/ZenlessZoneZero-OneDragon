@@ -1,3 +1,4 @@
+from one_dragon.utils.i18_utils import gt
 import os
 from enum import Enum
 from typing import Union, Optional
@@ -14,7 +15,7 @@ from one_dragon.base.config.config_item import ConfigItem
 
 class ImageScaleEnum(Enum):
 
-    SCALE_100 = ConfigItem(label='原图', value=1)
+    SCALE_100 = ConfigItem(label=gt('原图'), value=1)
     SCALE_50 = ConfigItem(label='0.5x', value=0.5)
     X2 = ConfigItem(label='2x', value=2.0)
     X4 = ConfigItem(label='4x', value=4.0)

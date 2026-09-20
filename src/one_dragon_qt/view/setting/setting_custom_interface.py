@@ -44,15 +44,15 @@ class SettingCustomInterface(VerticalScrollInterface):
             self,
             object_name='setting_custom_interface',
             content_widget=None, parent=parent,
-            nav_text_cn='自定义设置'
+            nav_text_cn=gt('自定义设置')
         )
 
     def get_content_widget(self) -> QWidget:
         content_widget = Column(self)
 
         self.help_opt = HelpCard(
-            title='设置说明',
-            content='语言、主题和背景调整后，部分效果可能需要重启后生效',
+            title=gt('设置说明'),
+            content=gt('语言、主题和背景调整后，部分效果可能需要重启后生效'),
         )
         content_widget.add_widget(self.help_opt)
         content_widget.add_widget(self._init_basic_group())
@@ -64,34 +64,34 @@ class SettingCustomInterface(VerticalScrollInterface):
         basic_group = SettingCardGroup(gt('外观'))
 
         self.ui_language_opt = ComboBoxSettingCard(
-            icon=FluentIcon.LANGUAGE, title='界面语言',
+            icon=FluentIcon.LANGUAGE, title=gt('界面语言'),
             options_enum=UILanguageEnum
         )
         self.ui_language_opt.value_changed.connect(self._on_ui_language_changed)
         basic_group.addSettingCard(self.ui_language_opt)
 
         self.theme_opt = ComboBoxSettingCard(
-            icon=FluentIcon.CONSTRACT, title='界面主题',
+            icon=FluentIcon.CONSTRACT, title=gt('界面主题'),
             options_enum=ThemeEnum
         )
         self.theme_opt.value_changed.connect(self._on_theme_changed)
         basic_group.addSettingCard(self.theme_opt)
 
         # 自定义主题色按钮
-        self.custom_theme_color_btn = PrimaryPushButton(icon=FluentIcon.PALETTE, text=gt('自定义主题色'))
+        self.custom_theme_color_btn = PrimaryPushButton(icon=FluentIcon.PALETTE, text=gt(gt('自定义主题色')))
         self.custom_theme_color_btn.clicked.connect(self._on_custom_theme_color_clicked)
 
         # 主题色模式（密码保护）
         self.theme_color_mode_opt = PasswordSwitchSettingCard(
             icon=FluentIcon.PALETTE,
             title='自定义主题色',
-            content='开启后可自定义主题色',
+            content=gt('开启后可自定义主题色'),
             extra_btn=self.custom_theme_color_btn,
-            password_hint='使用此功能需要密码哦~',
+            password_hint=gt(gt('使用此功能需要密码哦~')),
             password_hash='b0cd76b7d7829362d581b739c0b295abf53182792609078bb17a9dd917ffba7c',
-            dialog_title='嘻嘻~',
-            dialog_content='密码不对哦~',
-            dialog_button_text='再试试吧',
+            dialog_title=gt(gt('嘻嘻~')),
+            dialog_content=gt(gt('密码不对哦~')),
+            dialog_button_text=gt(gt('再试试吧')),
         )
         self.theme_color_mode_opt.value_changed.connect(self._on_theme_color_mode_changed)
 
@@ -99,8 +99,8 @@ class SettingCustomInterface(VerticalScrollInterface):
 
         self.background_type_opt = ComboBoxSettingCard(
             icon=FluentIcon.BACKGROUND_FILL,
-            title='主页背景类型',
-            content='选择主页显示的背景',
+            title=gt('主页背景类型'),
+            content=gt('选择主页显示的背景'),
             options_enum=BackgroundTypeEnum
         )
         self.background_type_opt.value_changed.connect(self._on_background_type_changed)
@@ -110,7 +110,7 @@ class SettingCustomInterface(VerticalScrollInterface):
         self.banner_select_btn.clicked.connect(self._on_banner_select_clicked)
         self.custom_banner_opt = PasswordSwitchSettingCard(
             icon=FluentIcon.PHOTO,
-            title='自定义主页背景',
+            title=gt('自定义主页背景'),
             extra_btn=self.banner_select_btn,
             password_hint='使用此功能需要密码哦~',
             password_hash='d678f04ece93caaa4d030696429101725cbf31657dd9ded4fdc3b71b3ee05c54',

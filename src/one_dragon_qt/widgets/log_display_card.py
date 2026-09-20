@@ -1,3 +1,4 @@
+from one_dragon.utils.i18_utils import gt
 from collections import deque
 import logging
 from PySide6.QtCore import Signal, QObject, QTimer, QEvent
@@ -194,7 +195,7 @@ class LogDisplayCard(PlainTextEdit):
             formatted_log = log_item
             
             # 1. 先处理红色错误关键字
-            error_keywords = ['失败', '错误', '异常', '警告', 'ERROR', 'WARNING', 'FAIL', 'Exception', 'Error']
+            error_keywords = [gt('失败'), gt('错误'), gt('异常'), gt('警告'), 'ERROR', 'WARNING', 'FAIL', 'Exception', 'Error']
             for keyword in error_keywords:
                 if keyword in formatted_log:
                     formatted_log = formatted_log.replace(

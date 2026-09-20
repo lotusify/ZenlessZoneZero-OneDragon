@@ -1,3 +1,4 @@
+from one_dragon.utils.i18_utils import gt
 import locale
 import os
 
@@ -40,23 +41,23 @@ class DirectoryPickerTranslator:
         self.language = language
         self.translations = {
             'zh': {
-                'title': '请选择安装路径',
-                'placeholder': '选择安装路径...',
-                'browse': '浏览',
-                'confirm': '确认',
-                'select_directory': '选择目录',
-                'warning': '警告',
-                'root_directory_warning': '所选目录为根目录，请选择其他目录。',
-                'path_character_warning': '所选目录的路径包含非法字符，请确保路径全为英文字符且不包含空格。',
-                'directory_not_empty_warning': '所选目录不为空，里面的内容将被覆盖：\n{path}\n\n是否继续使用此目录？',
-                'i_know': '我知道了',
-                'continue_use': '继续使用',
-                'select_other': '选择其他目录',
-                'preparing': '正在准备安装文件...',
-                'copying': '正在复制 {current}/{total}',
-                'cleaning': '正在清理源目录...',
-                'unpack_failed_title': '搬运失败',
-                'unpack_failed_body': '安装文件搬运失败，请重新运行安装器。\n\n{detail}',
+                'title': gt('请选择安装路径'),
+                'placeholder': gt('选择安装路径...'),
+                'browse': gt('浏览'),
+                'confirm': gt('确认'),
+                'select_directory': gt('选择目录'),
+                'warning': gt('警告'),
+                'root_directory_warning': gt('所选目录为根目录，请选择其他目录。'),
+                'path_character_warning': gt('所选目录的路径包含非法字符，请确保路径全为英文字符且不包含空格。'),
+                'directory_not_empty_warning': gt('所选目录不为空，里面的内容将被覆盖：\n{path}\n\n是否继续使用此目录？'),
+                'i_know': gt('我知道了'),
+                'continue_use': gt('继续使用'),
+                'select_other': gt('选择其他目录'),
+                'preparing': gt('正在准备安装文件...'),
+                'copying': gt('正在复制 {current}/{total}'),
+                'cleaning': gt('正在清理源目录...'),
+                'unpack_failed_title': gt('搬运失败'),
+                'unpack_failed_body': gt('安装文件搬运失败，请重新运行安装器。\n\n{detail}'),
             },
             'en': {
                 'title': 'Please Select Installation Path',

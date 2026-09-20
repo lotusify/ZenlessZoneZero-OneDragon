@@ -1,3 +1,4 @@
+from one_dragon.utils.i18_utils import gt
 from enum import Enum
 from typing import Iterable, List, Optional, Union
 
@@ -250,10 +251,10 @@ class MultiSelectionComboBoxSettingCard(SettingCardBase, AdapterInitMixin):
             # 获取第一个选中项的描述
             desc = selected_items[0].desc
             if len(selected_items) > 1:
-                desc = f"已选 {len(selected_items)} 项"
+                desc = f"gt(已选 ){len(selected_items)}gt( 项)"
             self.setContent(desc)
         else:
-            self.setContent("未选择")
+            self.setContent(gt("未选择"))
 
     def set_value(self, value: list, emit_signal: bool = True) -> None:
         """设置多选下拉框的值。"""

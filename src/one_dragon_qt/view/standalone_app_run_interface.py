@@ -34,7 +34,7 @@ class StandaloneRunInterface(SplitAppRunInterface):
 
     def __init__(self, ctx: OneDragonContext,
                  object_name: str = 'standalone_run_interface',
-                 nav_text_cn: str = '运行',
+                 nav_text_cn: str = gt('运行'),
                  nav_icon: FluentIconBase | QIcon | str = FluentIcon.PLAY,
                  parent: QWidget | None = None):
         self.ctx: OneDragonContext = ctx

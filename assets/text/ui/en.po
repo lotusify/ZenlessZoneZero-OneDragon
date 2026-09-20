@@ -1,7 +1,6 @@
+#
 msgid ""
 msgstr ""
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
 
 # ZZZ-OD
 msgid "ZenlessZoneZero"
@@ -25,7 +24,9 @@ msgid "语言切换"
 msgstr "Language Switch"
 
 msgid "语言切换成功，需要重启应用程序以生效"
-msgstr "Language changed successfully. Please restart the application for changes to take effect."
+msgstr ""
+"Language changed successfully. Please restart the application for changes to"
+" take effect."
 
 msgid "界面语言"
 msgstr "UI Language"
@@ -230,7 +231,6 @@ msgstr "UI Theme"
 msgid "主页公告"
 msgstr "Homepage Announcement"
 
-
 msgid "版本海报"
 msgstr "Version Poster"
 
@@ -308,9 +308,6 @@ msgstr "Open Game"
 msgid "打开并登录游戏"
 msgstr "Open and Login Game"
 
-msgid "禁用HDR"
-msgstr "Disable HDR"
-
 msgid "恢复HDR"
 msgstr "Restore HDR"
 
@@ -337,10 +334,13 @@ msgstr "Start Recording"
 
 # 游戏设置
 msgid "使用默认队伍名称出现错选时 可更改名字解决"
-msgstr "Change team names to resolve wrong selection when using default team names"
+msgstr ""
+"Change team names to resolve wrong selection when using default team names"
 
 msgid "本页代理人可在游戏助手中自动识别，设置仅作用于避免式舆防卫战选择配队冲突"
-msgstr "Agents on this page can be auto-recognized in game assistant, settings only work to avoid team selection conflicts in Shiyu Defense"
+msgstr ""
+"Agents on this page can be auto-recognized in game assistant, settings only "
+"work to avoid team selection conflicts in Shiyu Defense"
 
 msgid "！设置皮肤以正常使用自动战斗功能 ！"
 msgstr "! Set outfits to use auto-battle function properly !"
@@ -349,10 +349,9 @@ msgid "切换 HDR 状态"
 msgstr "Toggle HDR Status"
 
 msgid "仅影响手动启动游戏，一条龙启动游戏会自动禁用 HDR"
-msgstr "Only affects manual game launch, OneDragon will auto-disable HDR when launching"
-
-msgid "窗口尺寸"
-msgstr "Window Size"
+msgstr ""
+"Only affects manual game launch, OneDragon will auto-disable HDR when "
+"launching"
 
 # 代理人设置
 msgid "妮可"
@@ -644,7 +643,9 @@ msgid "已同步代码"
 msgstr "Code Synced"
 
 msgid "更新后需重启脚本生效。如不能运行，尝试使用安装器更新运行依赖，或更新安装器"
-msgstr "Restart required after update. If unable to run, try updating dependencies with installer or update installer itself"
+msgstr ""
+"Restart required after update. If unable to run, try updating dependencies "
+"with installer or update installer itself"
 
 # 安装相关
 msgid "安装指南"
@@ -664,7 +665,8 @@ msgid "复制截图到剪贴板"
 msgstr "Copy Screenshot to Clipboard"
 
 msgid "按下截图按键时，自动将截图复制到剪贴板"
-msgstr "Automatically copy screenshot to clipboard when screenshot key is pressed"
+msgstr ""
+"Automatically copy screenshot to clipboard when screenshot key is pressed"
 
 msgid "Git相关"
 msgstr "Git Related"
@@ -719,19 +721,11 @@ msgstr "Please enter Qmsg's QMSG_TYPE"
 msgid "企业微信代理地址"
 msgstr "Enterprise WeChat Proxy Address"
 
-# 账户设置相关
-msgid "游戏区服"
-msgstr "Game Server"
-
 msgid "所有信息都明文保存在本地"
 msgstr "All information is saved locally in plain text"
 
 msgid "请自行妥善管理"
 msgstr "Please manage properly by yourself"
-
-# 主题和外观设置
-msgid "界面主题"
-msgstr "UI Theme"
 
 msgid "版本活动海报持续整个版本"
 msgstr "Version event poster lasts throughout the version"
@@ -739,8 +733,2195 @@ msgstr "Version event poster lasts throughout the version"
 msgid "关闭后仅用本地图片"
 msgstr "Use only local images when disabled"
 
-msgid "自定义主页背景"
-msgstr "Custom Homepage Background"
-
 msgid "设置后重启脚本生效"
 msgstr "Restart script for changes to take effect"
+
+# ====== NEW ENTRIES — NEED MANUAL TRANSLATION (added by i18n_wrap, 2025)
+# ======
+# 这些是代码中硬编码的中文 UI 字符串，msgstr 留空，请手动填入英文。
+# These are hardcoded Chinese UI strings; msgstr is empty. Please fill in
+# English.
+msgid "保存失败: "
+msgstr "Failed to save: "
+
+# type: interface
+msgid "掩码图已保存"
+msgstr "Mask image saved"
+
+# type: interface
+msgid "保存掩码图"
+msgstr "Save mask image"
+
+# type: interface
+msgid "扣图结果已保存"
+msgstr "Cutout result saved"
+
+# type: interface
+msgid "保存扣图结果"
+msgstr "Save cutout result"
+
+# type: interface
+msgid "颜色过滤失败: "
+msgstr "Color filtering failed: "
+
+# type: interface
+msgid "颜色值格式错误，请使用 \"R,G,B\" 或 \"H,S,V\" 格式"
+msgstr "Invalid color value format. Use \"R,G,B\" or \"H,S,V\""
+
+# type: interface
+msgid "请先加载图片并选择区域"
+msgstr "Please load an image and select an area first"
+
+# type: interface
+msgid "加载图片失败: "
+msgstr "Failed to load image: "
+
+# type: interface
+msgid "无法读取图像文件"
+msgstr "Unable to read image file"
+
+# type: interface
+msgid "保存操作"
+msgstr "Save Operation"
+
+# type: interface
+msgid "清空图像"
+msgstr "Clear Image"
+
+# type: interface
+msgid "自动裁剪:"
+msgstr "Auto-crop:"
+
+# type: interface
+msgid "自动裁剪到有效区域"
+msgstr "Automatically crop to the valid area"
+
+# type: interface
+msgid "处理选项"
+msgstr "Processing Options"
+
+# type: interface
+msgid "执行颜色过滤"
+msgstr "Run Color Filter"
+
+# type: interface
+msgid "应用颜色过滤"
+msgstr "Apply Color Filter"
+
+# type: interface
+msgid "设置颜色过滤的上限值 (R,G,B 或 H,S,V)"
+msgstr "Set the upper limit for color filtering (R,G,B or H,S,V)"
+
+# type: interface
+msgid "颜色上限"
+msgstr "Color Upper Limit"
+
+# type: interface
+msgid "设置颜色过滤的下限值 (R,G,B 或 H,S,V)"
+msgstr "Set the lower limit for color filtering (R,G,B or H,S,V)"
+
+# type: interface
+msgid "颜色下限"
+msgstr "Color Lower Limit"
+
+# type: interface
+msgid "选择颜色过滤的颜色空间"
+msgstr "Select the color space for color filtering"
+
+# type: interface
+msgid "颜色空间"
+msgstr "Color Space"
+
+# type: interface
+msgid "图像加载"
+msgstr "Image Loading"
+
+# type: interface
+msgid "加载图片"
+msgstr "Load Image"
+
+# type: interface
+msgid "图像扣图"
+msgstr "Image Cutout"
+
+# type: interface
+msgid "图像处理"
+msgstr "Image Processing"
+
+# type: interface
+msgid "匹配成功，匹配度: "
+msgstr "Match successful, confidence: "
+
+# type: interface
+msgid "匹配度过低: "
+msgstr "Match confidence too low: "
+
+# type: interface
+msgid "无法提取匹配区域"
+msgstr "Unable to extract the matching area"
+
+# type: interface
+msgid "恢复缩放状态: "
+msgstr "Restore zoom state: "
+
+# type: interface
+msgid "% (当前: "
+msgstr "% (current: "
+
+# type: interface
+msgid "已清空所有图像"
+msgstr "All images cleared"
+
+# type: interface
+msgid "确定要清空所有图像吗？"
+msgstr "Are you sure you want to clear all images?"
+
+# type: interface
+msgid "确认清空"
+msgstr "Confirm Clear"
+
+# type: interface
+msgid "图像保存成功"
+msgstr "Image saved successfully"
+
+# type: interface
+msgid "图像保存成功: "
+msgstr "Image saved successfully: "
+
+# type: interface
+msgid "保存图像"
+msgstr "Save Image"
+
+# type: interface
+msgid "没有可保存的图像"
+msgstr "No image to save"
+
+# type: interface
+msgid "图像合并失败: "
+msgstr "Failed to merge images: "
+
+# type: interface
+msgid "图像合并完成"
+msgstr "Images merged successfully"
+
+# type: interface
+msgid "请先加载两张图像"
+msgstr "Please load two images first"
+
+# type: interface
+msgid "应用Y偏移: Δ"
+msgstr "Apply Y offset: Δ"
+
+# type: interface
+msgid ", 新位置: ("
+msgstr ", new position: ("
+
+# type: interface
+msgid "请先加载第二张图"
+msgstr "Please load the second image first"
+
+# type: interface
+msgid "应用X偏移: Δ"
+msgstr "Apply X offset: Δ"
+
+# type: interface
+msgid "自动匹配失败: "
+msgstr "Automatic matching failed: "
+
+# type: interface
+msgid "第二张图新位置: ("
+msgstr "New position of the second image: ("
+
+# type: interface
+msgid "自动匹配完成，调整偏移: ("
+msgstr "Automatic matching complete, adjusted offset: ("
+
+# type: interface
+msgid "重叠比例设置为: 宽度"
+msgstr "Overlap set to: width"
+
+# type: interface
+msgid "%, 高度"
+msgstr "%, height"
+
+# type: interface
+msgid "拼接方向设置为: "
+msgstr "Stitching direction set to: "
+
+# type: interface
+msgid "下边"
+msgstr "Bottom"
+
+# type: interface
+msgid "上边"
+msgstr "Top"
+
+# type: interface
+msgid "右边"
+msgstr "Right"
+
+# type: interface
+msgid "左边"
+msgstr "Left"
+
+# type: interface
+msgid "加载第二张图失败: "
+msgstr "Failed to load the second image: "
+
+# type: interface
+msgid "自动拼接位置: ("
+msgstr "Automatic stitching position: ("
+
+# type: interface
+msgid "加载第二张图成功: "
+msgstr "Second image loaded successfully: "
+
+# type: interface
+msgid ", 形状: "
+msgstr ", shape: "
+
+# type: interface
+msgid "选择第二张图"
+msgstr "Select Second Image"
+
+# type: interface
+msgid "加载底图失败: "
+msgstr "Failed to load base image: "
+
+# type: interface
+msgid "加载底图成功: "
+msgstr "Base image loaded successfully: "
+
+# type: interface
+msgid "选择底图"
+msgstr "Select Base Image"
+
+# type: interface
+msgid "合并操作"
+msgstr "Merge Operations"
+
+# type: interface
+msgid "保存结果"
+msgstr "Save Result"
+
+# type: interface
+msgid "合并图像"
+msgstr "Merge Images"
+
+# type: interface
+msgid "微调第二张图的位置（累积偏移）"
+msgstr "Fine-tune the position of the second image (cumulative offset)"
+
+# type: interface
+msgid "手动调整"
+msgstr "Manual Adjustment"
+
+# type: interface
+msgid "Y偏移"
+msgstr "Y Offset"
+
+# type: interface
+msgid "X偏移"
+msgstr "X Offset"
+
+# type: interface
+msgid "图像匹配"
+msgstr "Image Matching"
+
+# type: interface
+msgid "自动匹配"
+msgstr "Automatic Matching"
+
+# type: interface
+msgid "高度:"
+msgstr "Height:"
+
+# type: interface
+msgid "宽度:"
+msgstr "Width:"
+
+# type: interface
+msgid "宽度和高度的重叠区域大小"
+msgstr "Overlap area size for width and height"
+
+# type: interface
+msgid "重叠比例"
+msgstr "Overlap Ratio"
+
+# type: interface
+msgid "第二张图相对于底图的位置"
+msgstr "Position of the second image relative to the base image"
+
+# type: interface
+msgid "拼接方向"
+msgstr "Stitching Direction"
+
+# type: interface
+msgid "加载第二张图"
+msgstr "Load Second Image"
+
+# type: interface
+msgid "加载底图"
+msgstr "Load Base Image"
+
+# type: interface
+msgid "图片拼接"
+msgstr "Image Stitching"
+
+# type: interface
+msgid ""
+"安装文件搬运失败，请重新运行安装器。\n"
+"\n"
+"{detail}"
+msgstr "Failed to transfer installation files. Please run the installer again.\n\n{detail}"
+
+# type: interface
+msgid "搬运失败"
+msgstr "Transfer Failed"
+
+# type: interface
+msgid "正在清理源目录..."
+msgstr "Cleaning source directory..."
+
+# type: interface
+msgid "正在复制 {current}/{total}"
+msgstr "Copying {current}/{total}"
+
+# type: interface
+msgid "正在准备安装文件..."
+msgstr "Preparing installation files..."
+
+# type: interface
+msgid "选择其他目录"
+msgstr "Select Another Directory"
+
+# type: interface
+msgid "继续使用"
+msgstr "Continue Using"
+
+# type: interface
+msgid ""
+"所选目录不为空，里面的内容将被覆盖：\n"
+"{path}\n"
+"\n"
+"是否继续使用此目录？"
+msgstr "The selected directory is not empty. Its contents will be overwritten:\n{path}\n\nContinue using this directory?"
+
+# type: interface
+msgid "所选目录的路径包含非法字符，请确保路径全为英文字符且不包含空格。"
+msgstr "The selected directory path contains invalid characters. Make sure the path uses only English characters and contains no spaces."
+
+# type: interface
+msgid "所选目录为根目录，请选择其他目录。"
+msgstr "The selected directory is the root directory. Please select another directory."
+
+# type: interface
+msgid "警告"
+msgstr "Warning"
+
+# type: interface
+msgid "选择目录"
+msgstr "Select Directory"
+
+# type: interface
+msgid "对话框测试已完成"
+msgstr "Dialog test completed"
+
+# type: interface
+msgid "测试完成"
+msgstr "Test Completed"
+
+# type: interface
+msgid "☀️ 切换到亮色主题"
+msgstr "☀️ Switch to Light Theme"
+
+# type: interface
+msgid "🌙 切换到暗色主题"
+msgstr "🌙 Switch to Dark Theme"
+
+# type: interface
+msgid "已恢复为初始任务列表"
+msgstr "Restored the initial task list"
+
+# type: interface
+msgid "列表已重置"
+msgstr "List Reset"
+
+# type: interface
+msgid "新任务 "
+msgstr "New Task "
+
+# type: interface
+msgid "列表项位置已交换"
+msgstr "List item positions swapped"
+
+# type: interface
+msgid "顺序已更新"
+msgstr "Order updated"
+
+# type: interface
+msgid "项):\n"
+msgstr "items):\n"
+
+# type: interface
+msgid "✅ 当前顺序 ("
+msgstr "✅ Current order ("
+
+# type: interface
+msgid "项)"
+msgstr "items)"
+
+# type: interface
+msgid " → ... (共"
+msgstr " → ... (total "
+
+# type: interface
+msgid "用户培训"
+msgstr "User Training"
+
+# type: interface
+msgid "部署上线"
+msgstr "Go Live"
+
+# type: interface
+msgid "集成测试"
+msgstr "Integration Testing"
+
+# type: interface
+msgid "性能优化"
+msgstr "Performance Optimization"
+
+# type: interface
+msgid "代码审查和重构"
+msgstr "Code Review and Refactoring"
+
+# type: interface
+msgid "准备用户手册"
+msgstr "Prepare User Manual"
+
+# type: interface
+msgid "编写单元测试"
+msgstr "Write Unit Tests"
+
+# type: interface
+msgid "实现核心功能模块"
+msgstr "Implement Core Functionality"
+
+# type: interface
+msgid "设计系统架构"
+msgstr "Design System Architecture"
+
+# type: interface
+msgid "完成需求分析文档"
+msgstr "Complete Requirements Analysis Document"
+
+# type: interface
+msgid "🔍 打开对话框测试"
+msgstr "🔍 Open Dialog Test"
+
+# type: interface
+msgid "🔄 重置列表"
+msgstr "🔄 Reset List"
+
+# type: interface
+msgid "➕ 添加新任务"
+msgstr "➕ Add New Task"
+
+# type: interface
+msgid "当前顺序: 已加载 10 个任务"
+msgstr "Current order: 10 tasks loaded"
+
+# type: interface
+msgid "任务列表（可拖拽调整顺序，带滚动区域）"
+msgstr "Task list (drag to reorder, with a scroll area)"
+
+# type: interface
+msgid ""
+"下方展示了可拖动列表组件的使用方法。\n"
+"\n"
+"✨ 功能特点：\n"
+"  • 支持拖拽交换列表项位置\n"
+"  • 支持自定义列表行内容\n"
+"  • 实时显示当前顺序\n"
+"  • 提供顺序变化信号\n"
+"  • 拖拽时透明度动画效果（可配置）\n"
+"  • 🆕 支持滚动区域自动滚动\n"
+"\n"
+"⚙️ 配置选项：\n"
+"  enable_opacity_effect 参数（在创建 DraggableList 时设置）：\n"
+"  • True（默认）：启用透明度效果，拖拽时列表项会变半透明\n"
+"  • False：禁用透明度效果，避免在对话框中出现位置偏移\n"
+"\n"
+"⚠️ 使用建议：\n"
+"  • 主界面窗口：使用默认值（True），获得最佳视觉效果\n"
+"  • 对话框环境：设置为 False，避免 QGraphicsEffect 嵌套导致的偏移\n"
+"\n"
+"📝 使用方法：\n"
+"  鼠标左键按住列表项，拖动到目标位置松开即可交换位置。\n"
+"  当拖动到滚动区域边缘时，列表会自动滚动。\n"
+"  点击「打开对话框测试」按钮查看禁用透明效果的表现。"
+msgstr "The section below demonstrates how to use the draggable list component.\n\n✨ Features:\n  • Drag to swap list item positions\n  • Customize list row content\n  • Display the current order in real time\n  • Provide an order-change signal\n  • Configurable opacity animation while dragging\n  • 🆕 Automatically scroll the scroll area\n\n⚙️ Configuration:\n  enable_opacity_effect parameter (set when creating DraggableList):\n  • True (default): enable the opacity effect; list items become semi-transparent while dragging\n  • False: disable the opacity effect to avoid position offsets in dialogs\n\n⚠️ Recommendations:\n  • Main window: use the default value (True) for the best visual effect\n  • Dialogs: set it to False to avoid offsets caused by nested QGraphicsEffect objects\n\n📝 Usage:\n  Hold the left mouse button on a list item, drag it to the target position, and release to swap positions.\n  The list scrolls automatically when you drag near the edge of the scroll area.\n  Click \"Open Dialog Test\" to see the disabled opacity effect."
+
+# type: interface
+msgid "DraggableList 组件演示"
+msgstr "DraggableList Component Demo"
+
+# type: interface
+msgid "组件演示"
+msgstr "Component Demo"
+
+# type: interface
+msgid "DraggableList - 可拖动列表演示"
+msgstr "DraggableList - Draggable List Demo"
+
+# type: interface
+msgid "对话框列表顺序已更新: "
+msgstr "Dialog list order updated: "
+
+# type: interface
+msgid "对话框任务C"
+msgstr "Dialog Task C"
+
+# type: interface
+msgid "对话框任务B"
+msgstr "Dialog Task B"
+
+# type: interface
+msgid "对话框任务A"
+msgstr "Dialog Task A"
+
+# type: interface
+msgid ""
+"此对话框用于测试 DraggableList 在 MessageBoxBase 中的表现。\n"
+"\n"
+"ℹ️ 技术说明：\n"
+"为避免在 MessageBoxBase 对话框中出现位置偏移，\n"
+"此列表在创建时设置了 enable_opacity_effect=False。\n"
+"\n"
+"✅ 主界面列表：启用透明度效果（默认），拖拽时会有淡入淡出动画\n"
+"✅ 对话框列表：禁用透明度效果，避免位置偏移问题"
+msgstr "This dialog tests how DraggableList behaves in MessageBoxBase.\n\nℹ️ Technical details:\nTo avoid position offsets in a MessageBoxBase dialog,\nthis list is created with enable_opacity_effect=False.\n\n✅ Main window list: opacity effect enabled (default), with fade animation while dragging\n✅ Dialog list: opacity effect disabled to avoid position offsets"
+
+# type: interface
+msgid "DraggableList 对话框测试"
+msgstr "DraggableList Dialog Test"
+
+# type: interface
+msgid "🟢 低"
+msgstr "🟢 Low"
+
+# type: interface
+msgid "🟡 中"
+msgstr "🟡 Medium"
+
+# type: interface
+msgid "🔴 高"
+msgstr "🔴 High"
+
+# type: interface
+msgid "☰ 拖拽调整顺序"
+msgstr "☰ Drag to Reorder"
+
+# type: interface
+msgid "❌ 当前选中: 无"
+msgstr "❌ Currently selected: None"
+
+# type: interface
+msgid "项): "
+msgstr "items): "
+
+# type: interface
+msgid "✅ 当前选中 ("
+msgstr "✅ Currently selected ("
+
+# type: interface
+msgid "SettingCard 选中: "
+msgstr "SettingCard selected: "
+
+# type: interface
+msgid "选择运行模式"
+msgstr "Select Run Mode"
+
+# type: interface
+msgid "模式选择"
+msgstr "Mode Selection"
+
+# type: interface
+msgid "2. 设置卡片 (SettingCard, min=200px, max=自动计算)"
+msgstr "2. Setting Card (SettingCard, min=200px, max=auto-calculated)"
+
+# type: interface
+msgid "当前选中: 无"
+msgstr "Currently selected: None"
+
+# type: interface
+msgid "选择模式..."
+msgstr "Select mode..."
+
+# type: interface
+msgid "1. 基础组件（固定宽度 400px）"
+msgstr "1. Basic Component (fixed width: 400px)"
+
+# type: interface
+msgid ""
+"下方展示了两种使用方式：\n"
+"1. 基础组件：MultiSelectionComboBox\n"
+"2. 设置卡片：MultiSelectionComboBoxSettingCard（适用于设置界面）\n"
+"\n"
+"选项文本长度不同（短/中/长），方便观察标签宽度计算和自动换行效果。\n"
+"点击下拉框选择多个选项，选中的项会以标签形式显示。\n"
+"点击标签的 ✕ 按钮可以删除该选项。"
+msgstr "The section below demonstrates two usage patterns:\n1. Basic component: MultiSelectionComboBox\n2. Setting card: MultiSelectionComboBoxSettingCard (for settings interfaces)\n\nThe option labels have different lengths (short/medium/long) to make it easy to observe label width calculation and automatic wrapping.\nSelect multiple options from the drop-down; selected options are displayed as tags.\nClick the ✕ button on a tag to remove that option."
+
+# type: interface
+msgid "MultiSelectionComboBox 组件演示"
+msgstr "MultiSelectionComboBox Component Demo"
+
+# type: interface
+msgid "MultiSelectionComboBox - Fluent Design 风格演示"
+msgstr "MultiSelectionComboBox - Fluent Design Demo"
+
+# type: interface
+msgid "冥想放松"
+msgstr "Meditation and Relaxation"
+
+# type: interface
+msgid "设计创作"
+msgstr "Creative Design"
+
+# type: interface
+msgid "创作设计"
+msgstr "Design and Creation"
+
+# type: interface
+msgid "娱乐休闲放松"
+msgstr "Entertainment and Relaxation"
+
+# type: interface
+msgid "休闲娱乐"
+msgstr "Leisure and Entertainment"
+
+# type: interface
+msgid "社交互动"
+msgstr "Social Interaction"
+
+# type: interface
+msgid "朋友聚会"
+msgstr "Get Together with Friends"
+
+# type: interface
+msgid "阅读好书"
+msgstr "Read a Good Book"
+
+# type: interface
+msgid "阅读书籍"
+msgstr "Reading"
+
+# type: interface
+msgid "运动和健身"
+msgstr "Exercise and Fitness"
+
+# type: interface
+msgid "运动健身"
+msgstr "Exercise"
+
+# type: interface
+msgid "放松休息"
+msgstr "Relax and Rest"
+
+# type: interface
+msgid "休息"
+msgstr "Rest"
+
+# type: interface
+msgid "学习"
+msgstr "Study"
+
+# type: interface
+msgid "专注学习"
+msgstr "Focused Study"
+
+# type: interface
+msgid "游戏"
+msgstr "Games"
+
+# type: interface
+msgid "娱乐和游戏"
+msgstr "Entertainment and Games"
+
+# type: interface
+msgid "高效办公"
+msgstr "Productive Work"
+
+# type: interface
+msgid "工作"
+msgstr "Work"
+
+# type: interface
+msgid "长文本"
+msgstr "Long Text"
+
+# type: interface
+msgid "这是一个非常非常长的文本标签"
+msgstr "This is a very, very long text label"
+
+# type: interface
+msgid "中等长度文本"
+msgstr "Medium-Length Text"
+
+# type: interface
+msgid "中等长度"
+msgstr "Medium Length"
+
+# type: interface
+msgid "短文本"
+msgstr "Short Text"
+
+# type: interface
+msgid "最终结果"
+msgstr "Final Result"
+
+# type: interface
+msgid "遮罩"
+msgstr "Mask"
+
+# type: interface
+msgid "原始图像"
+msgstr "Original Image"
+
+# type: interface
+msgid "请先加载图片"
+msgstr "Please load an image first"
+
+# type: interface
+msgid "子类必须实现 _apply_redo 方法"
+msgstr "Subclasses must implement the _apply_redo method"
+
+# type: interface
+msgid "子类必须实现 _apply_undo 方法"
+msgstr "Subclasses must implement the _apply_undo method"
+
+# type: interface
+msgid "子类必须实现 _has_valid_context 方法"
+msgstr "Subclasses must implement the _has_valid_context method"
+
+# type: interface
+msgid "Ctrl+Z 撤回，Ctrl+Shift+Z 恢复"
+msgstr "Ctrl+Z to undo, Ctrl+Shift+Z to redo"
+
+# type: interface
+msgid "历史记录"
+msgstr "History"
+
+# type: interface
+msgid "快速支援-"
+msgstr "Quick Assist-"
+
+# type: interface
+msgid "闪避识别-黄光"
+msgstr "Dodge Recognition - Gold Flash"
+
+# type: interface
+msgid "闪避识别-红光"
+msgstr "Dodge Recognition - Red Flash"
+
+# type: interface
+msgid "闪避识别-声音"
+msgstr "Dodge Recognition - Sound"
+
+# type: interface
+msgid "连携技-准备"
+msgstr "Chain Attack - Ready"
+
+# type: interface
+msgid "刷新 Overlay 状态面板失败"
+msgstr "Failed to refresh the Overlay status panel"
+
+# type: interface
+msgid "更新 Overlay 交互模式失败"
+msgstr "Failed to update the Overlay interaction mode"
+
+# type: interface
+msgid "Overlay 已启用，等待游戏窗口可用后显示"
+msgstr "Overlay enabled; waiting for the game window to become available before displaying it"
+
+# type: interface
+msgid "Overlay 已禁用：系统版本低于 Windows 10 2004（build 19041）"
+msgstr "Overlay disabled: Windows version is earlier than Windows 10 2004 (build 19041)"
+
+# type: interface
+msgid "更新 Overlay 窗口失败"
+msgstr "Failed to update the Overlay window"
+
+# type: interface
+msgid "保存 Overlay "
+msgstr "Failed to save Overlay "
+
+# type: interface
+msgid " 窗口模式失败"
+msgstr " window mode"
+
+# type: interface
+msgid "保存 Overlay 编辑模式失败"
+msgstr "Failed to save Overlay edit mode"
+
+# type: interface
+msgid " 样式失败"
+msgstr " style"
+
+# type: interface
+msgid "保存 Overlay 面板位置失败"
+msgstr "Failed to save the Overlay panel position"
+
+# type: interface
+msgid "捕获 Overlay 图像失败"
+msgstr "Failed to capture the Overlay image"
+
+# type: interface
+msgid "切换到自由模式"
+msgstr "Switch to Free Mode"
+
+# type: interface
+msgid "锁定"
+msgstr "Lock"
+
+# type: interface
+msgid "切换到锁定模式"
+msgstr "Switch to Locked Mode"
+
+# type: interface
+msgid "自由"
+msgstr "Free"
+
+# type: interface
+msgid "关闭编辑模式"
+msgstr "Close Edit Mode"
+
+# type: interface
+msgid "切换锁定/自由模式"
+msgstr "Toggle Locked/Free Mode"
+
+# type: interface
+msgid "提高面板不透明度"
+msgstr "Increase Panel Opacity"
+
+# type: interface
+msgid "降低面板不透明度"
+msgstr "Decrease Panel Opacity"
+
+# type: interface
+msgid "增大字号 (Ctrl+滚轮上)"
+msgstr "Increase Font Size (Ctrl+Mouse Wheel Up)"
+
+# type: interface
+msgid "减小字号 (Ctrl+滚轮下)"
+msgstr "Decrease Font Size (Ctrl+Mouse Wheel Down)"
+
+# type: interface
+msgid "，仅使用第一个"
+msgstr ", using only the first one"
+
+# type: interface
+msgid "模块 "
+msgstr "Module "
+
+# type: interface
+msgid " 中发现多个 AppSettingProvider: "
+msgstr " found multiple AppSettingProviders: "
+
+# type: interface
+msgid "无法解析模块路径: "
+msgstr "Unable to resolve module path: "
+
+# type: interface
+msgid "重复的应用设置 app_id '"
+msgstr "Duplicate application setting app_id '"
+
+# type: interface
+msgid "'，跳过: "
+msgstr "', skipped: "
+
+# type: interface
+msgid "加载应用设置文件失败: "
+msgstr "Failed to load application settings file: "
+
+# type: interface
+msgid "发现 "
+msgstr "Found "
+
+# type: interface
+msgid " 个应用设置提供者"
+msgstr " application setting providers"
+
+# type: interface
+msgid "已取消"
+msgstr "Canceled"
+
+# type: interface
+msgid "下载完成"
+msgstr "Download Complete"
+
+# type: interface
+msgid "下载线程异常结束"
+msgstr "Download thread ended unexpectedly"
+
+# type: interface
+msgid "正在取消"
+msgstr "Canceling"
+
+# type: interface
+msgid "下载任务后处理失败"
+msgstr "Failed to process the downloaded task"
+
+# type: interface
+msgid "正在应用更新"
+msgstr "Applying update"
+
+# type: interface
+msgid "下载队列任务失败"
+msgstr "Download queue task failed"
+
+# type: interface
+msgid "画中画截图失败"
+msgstr "Failed to capture picture-in-picture screenshot"
+
+# type: interface
+msgid "画中画截图器初始化失败"
+msgstr "Failed to initialize the picture-in-picture capturer"
+
+# type: interface
+msgid "画中画轮询异常"
+msgstr "Picture-in-picture polling error"
+
+# type: interface
+msgid "推荐版本更新"
+msgstr "Recommended Version Update"
+
+# type: interface
+msgid "模型文件缺失"
+msgstr "Model file missing"
+
+# type: interface
+msgid "模型"
+msgstr "Model"
+
+# type: interface
+msgid "启动器更新"
+msgstr "Launcher Update"
+
+# type: interface
+msgid "启动器"
+msgstr "Launcher"
+
+# type: interface
+msgid "构造资源下载项失败: "
+msgstr "Failed to create resource download item: "
+
+# type: interface
+msgid "首次使用需要下载"
+msgstr "Download required on first use"
+
+# type: interface
+msgid "发现可下载资源"
+msgstr "Downloadable resources found"
+
+# type: interface
+msgid "资源更新检查重复注册: "
+msgstr "Duplicate resource update check registration: "
+
+# type: interface
+msgid "资源更新检查失败: "
+msgstr "Resource update check failed: "
+
+# type: interface
+msgid "颜色值必须在0-255范围内"
+msgstr "Color values must be in the range 0-255"
+
+# type: interface
+msgid "颜色必须是包含3个整数的元组 (R, G, B)"
+msgstr "Color must be a tuple containing 3 integers (R, G, B)"
+
+# type: interface
+msgid "解包资源失败: "
+msgstr "Failed to unpack resources: "
+
+# type: interface
+msgid "正在读取安装清单..."
+msgstr "Reading installation manifest..."
+
+# type: interface
+msgid "搬运清单文件失败: "
+msgstr "Failed to transfer installation manifest: "
+
+# type: interface
+msgid "文件哈希校验失败，跳过: "
+msgstr "File hash verification failed, skipped: "
+
+# type: interface
+msgid "文件大小校验失败，跳过: "
+msgstr "File size verification failed, skipped: "
+
+# type: interface
+msgid "复制文件失败，跳过: "
+msgstr "File copy failed, skipped: "
+
+# type: interface
+msgid "磁盘空间不足: 需要 "
+msgstr "Insufficient disk space: required "
+
+# type: interface
+msgid "GB, 可用 "
+msgstr "GB, available "
+
+# type: interface
+msgid "安装清单格式不正确"
+msgstr "Invalid installation manifest format"
+
+# type: interface
+msgid "读取安装清单失败: "
+msgstr "Failed to read installation manifest: "
+
+# type: interface
+msgid "已有应用在运行中"
+msgstr "An application is already running"
+
+# type: interface
+msgid ""
+"\n"
+"HSV差值: "
+msgstr "\nHSV difference: "
+
+# type: interface
+msgid ""
+"\n"
+"HSV中心: "
+msgstr "\nHSV center: "
+
+# type: interface
+msgid "图像分析"
+msgstr "Image Analysis"
+
+# type: interface
+msgid "[ 新建流水线... ]"
+msgstr "[ New Pipeline... ]"
+
+# type: interface
+msgid "位置"
+msgstr "Position"
+
+# type: interface
+msgid "解析失败"
+msgstr "Parse Failed"
+
+# type: interface
+msgid "选择路径 %s"
+msgstr "Select Path %s"
+
+# type: interface
+msgid "图片左上角为(0, 0)"
+msgstr "The top-left corner of the image is (0, 0)"
+
+# type: interface
+msgid "鼠标点击坐标"
+msgstr "Mouse Click Coordinates"
+
+# type: interface
+msgid "更新"
+msgstr "Update"
+
+# type: interface
+msgid "手动更改yml文件后 需要触发更新生效"
+msgstr "Changes made manually to the YAML file require an update to take effect"
+
+# type: interface
+msgid "更新合并配置文件"
+msgstr "Update Merged Configuration File"
+
+# type: interface
+msgid "画面管理"
+msgstr "Screen Management"
+
+# type: interface
+msgid "手柄键"
+msgstr "Gamepad Key"
+
+# type: interface
+msgid "前往画面"
+msgstr "Go to Screen"
+
+# type: interface
+msgid "颜色范围"
+msgstr "Color Range"
+
+# type: interface
+msgid "模板阈值"
+msgstr "Template Threshold"
+
+# type: interface
+msgid "模板ID"
+msgstr "Template ID"
+
+# type: interface
+msgid "模板目录"
+msgstr "Template Directory"
+
+# type: interface
+msgid "OCR阈值"
+msgstr "OCR Threshold"
+
+# type: interface
+msgid "OCR文本"
+msgstr "OCR Text"
+
+# type: interface
+msgid "区域名称"
+msgstr "Region Name"
+
+# type: interface
+msgid "标识"
+msgstr "Identifier"
+
+# type: interface
+msgid "操作"
+msgstr "Operation"
+
+# type: interface
+msgid "需要 [[r,g,b],[r,g,b]]，实际: "
+msgstr "Expected [[r,g,b],[r,g,b]], got: "
+
+# type: interface
+msgid "需要 4 个坐标值，实际: "
+msgstr "Expected 4 coordinate values, got: "
+
+# type: interface
+msgid " 个"
+msgstr " items"
+
+# type: interface
+msgid "像素颜色信息"
+msgstr "Pixel Color Information"
+
+# type: interface
+msgid "点击位置: ("
+msgstr "Click Position: ("
+
+# type: interface
+msgid "形状使用说明"
+msgstr "Shape Usage Instructions"
+
+# type: interface
+msgid ""
+"\n"
+"\n"
+"快捷键：Ctrl+左键拖拽移动图片，滚轮缩放\n"
+"Ctrl+Z撤销，Ctrl+Shift+Z恢复，Del清除"
+msgstr "\n\nShortcuts: Ctrl+left-drag to move the image, mouse wheel to zoom\nCtrl+Z to undo, Ctrl+Shift+Z to redo, Del to clear"
+
+# type: interface
+msgid "左键单击添加点位，右键显示颜色信息"
+msgstr "Left-click to add a point; right-click to show color information"
+
+# type: interface
+msgid "多矩形模板：左键拖拽添加矩形区域，或单击添加点位"
+msgstr "Multi-rectangle template: left-drag to add a rectangular area, or click to add a point"
+
+# type: interface
+msgid "多边形模板：左键单击添加顶点，或拖拽添加矩形顶点"
+msgstr "Polygon template: left-click to add vertices, or drag to add rectangular vertices"
+
+# type: interface
+msgid "四边形模板：左键拖拽选择矩形区域，或依次单击四个顶点"
+msgstr "Quadrilateral template: left-drag to select a rectangular area, or click four vertices in sequence"
+
+# type: interface
+msgid "圆形模板：左键拖拽选择外接矩形，或单击圆心和边界点"
+msgstr "Circular template: left-drag to select the bounding rectangle, or click the center and a boundary point"
+
+# type: interface
+msgid "矩形模板：左键拖拽选择矩形区域，或单击两个对角点"
+msgstr "Rectangle template: left-drag to select a rectangular area, or click two diagonal points"
+
+# type: interface
+msgid "请先选择或创建模板"
+msgstr "Please select or create a template first"
+
+# type: interface
+msgid "温馨提示"
+msgstr "Tip"
+
+# type: interface
+msgid "自动生成掩码"
+msgstr "Generate Mask Automatically"
+
+# type: interface
+msgid "形状"
+msgstr "Shape"
+
+# type: interface
+msgid "点击查看形状使用说明"
+msgstr "Click to view shape usage instructions"
+
+# type: interface
+msgid "微调"
+msgstr "Fine-tune"
+
+# type: interface
+msgid "模板名称"
+msgstr "Template Name"
+
+# type: interface
+msgid "画面"
+msgstr "Screen"
+
+# type: interface
+msgid "模板管理"
+msgstr "Template Management"
+
+# type: interface
+msgid "安装失败，已自动打开帮助文档"
+msgstr "Installation failed; help documentation opened automatically"
+
+# type: interface
+msgid "安装项目所需的扩展组件和特定功能模块，提供完整的功能体验。"
+msgstr "Install the extensions and specific feature modules required by the project for the complete experience."
+
+# type: interface
+msgid "下载项目启动器，用于启动和管理一条龙应用。"
+msgstr "Download the project launcher to start and manage OneDragon applications."
+
+# type: interface
+msgid "配置 Python 运行环境和依赖管理工具，为项目运行做好准备。"
+msgstr "Configure the Python runtime environment and dependency manager so the project is ready to run."
+
+# type: interface
+msgid "从 GitHub 仓库同步最新项目代码，确保使用最新功能和修复。"
+msgstr "Sync the latest project code from the GitHub repository to ensure access to the latest features and fixes."
+
+# type: interface
+msgid "扩展安装"
+msgstr "Extension Installation"
+
+# type: interface
+msgid "环境配置"
+msgstr "Environment Configuration"
+
+# type: interface
+msgid "安装启动器"
+msgstr "Install Launcher"
+
+# type: interface
+msgid "代码同步"
+msgstr "Code Synchronization"
+
+# type: interface
+msgid "一键安装"
+msgstr "One-Click Installation"
+
+# type: interface
+msgid "步骤安装失败，已自动打开帮助文档"
+msgstr "Step installation failed; help documentation opened automatically"
+
+# type: interface
+msgid "未找到可用的 ctx，无法打开帮助文档"
+msgstr "No usable ctx found; unable to open the help documentation"
+
+# type: interface
+msgid "需更新"
+msgstr "Needs Update"
+
+# type: interface
+msgid "未配置"
+msgstr "Not Configured"
+
+# type: interface
+msgid "未安装"
+msgstr "Not Installed"
+
+# type: interface
+msgid "未同步"
+msgstr "Not Synced"
+
+# type: interface
+msgid "已配置"
+msgstr "Configured"
+
+# type: interface
+msgid "已安装"
+msgstr "Installed"
+
+# type: interface
+msgid "已同步"
+msgstr "Synced"
+
+# type: interface
+msgid "赞赏"
+msgstr "Donate"
+
+# type: interface
+msgid "访问GitHub指南"
+msgstr "View GitHub Guide"
+
+# type: interface
+msgid "点赞"
+msgstr "Like"
+
+# type: interface
+msgid "已取消关机计划"
+msgstr "Shutdown schedule canceled"
+
+# type: interface
+msgid "应用通知"
+msgstr "Application Notifications"
+
+# type: interface
+msgid "一条龙运行"
+msgstr "OneDragon Run"
+
+# type: interface
+msgid "更新与下载"
+msgstr "Updates and Downloads"
+
+# type: interface
+msgid "发现资源缺失或有新版本时，跳过确认并自动下载"
+msgstr "Skip confirmation and download automatically when resources are missing or a new version is available"
+
+# type: interface
+msgid "资源自动下载"
+msgstr "Automatic Resource Download"
+
+# type: interface
+msgid "仅在使用 GitHub 代理时生效"
+msgstr "Only effective when using a GitHub proxy"
+
+# type: interface
+msgid "自动获取免费代理地址"
+msgstr "Automatically obtain a free proxy address"
+
+# type: interface
+msgid "为代码和资源下载配置网络代理"
+msgstr "Configure a network proxy for code and resource downloads"
+
+# type: interface
+msgid "代理设置"
+msgstr "Proxy Settings"
+
+# type: interface
+msgid "自动模式优先使用上次成功源，失败后继续尝试其他源"
+msgstr "In automatic mode, prefer the last successful source and try other sources if it fails"
+
+# type: interface
+msgid "下载源"
+msgstr "Download Source"
+
+# type: interface
+msgid "下载设置"
+msgstr "Download Settings"
+
+# type: interface
+msgid "自定义分支"
+msgstr "Custom Branch"
+
+# type: interface
+msgid "强制更新"
+msgstr "Force Update"
+
+# type: interface
+msgid "不懂代码请开启，会将脚本更新到最新并将你的改动覆盖，不会使你的配置失效"
+msgstr "Enable this if you are not familiar with code. It updates the script to the latest version and overwrites your changes without invalidating your configuration."
+
+# type: interface
+msgid "自动更新"
+msgstr "Automatic Updates"
+
+# type: interface
+msgid "使用exe启动时，自动检测并更新代码"
+msgstr "When launched with the .exe, automatically check for and update the code"
+
+# type: interface
+msgid "主分支用于稳定版本，测试分支用于提前体验新功能"
+msgstr "The main branch is for stable versions; the test branch provides early access to new features"
+
+# type: interface
+msgid "代码分支"
+msgstr "Code Branch"
+
+# type: interface
+msgid "自动模式优先使用上次成功源"
+msgstr "In automatic mode, prefer the last successful source"
+
+# type: interface
+msgid "代码源"
+msgstr "Code Source"
+
+# type: interface
+msgid "资源管理"
+msgstr "Resource Management"
+
+# type: interface
+msgid "后台重新加载 OCR 模型失败"
+msgstr "Failed to reload the OCR model in the background"
+
+# type: interface
+msgid "关闭"
+msgstr "Off"
+
+# type: interface
+msgid "开启"
+msgstr "On"
+
+# type: interface
+msgid "节点通知为全部合并时，失败节点会额外立即推送"
+msgstr "When node notifications are merged, immediately push an extra notification for failed nodes"
+
+# type: interface
+msgid "合并模式失败节点立即通知"
+msgstr "Notify Immediately for Failed Nodes in Merge Mode"
+
+# type: interface
+msgid "通知设置"
+msgstr "Notification Settings"
+
+# type: interface
+msgid "选择主页显示的背景"
+msgstr "Select the background displayed on the home page"
+
+# type: interface
+msgid "主页背景类型"
+msgstr "Homepage Background Type"
+
+# type: interface
+msgid "开启后可自定义主题色"
+msgstr "Enable this to customize the theme color"
+
+# type: interface
+msgid "自定义主题色"
+msgstr "Custom Theme Color"
+
+# type: interface
+msgid "语言、主题和背景调整后，部分效果可能需要重启后生效"
+msgstr "Some changes may require restarting the application to take effect after changing the language, theme, or background"
+
+# type: interface
+msgid "设置说明"
+msgstr "Settings Instructions"
+
+# type: interface
+msgid "自定义设置"
+msgstr "Custom Settings"
+
+# type: interface
+msgid "已选择最快的Pip源："
+msgstr "Fastest Pip source selected: "
+
+# type: interface
+msgid "测速结果"
+msgstr "Speed Test Results"
+
+# type: interface
+msgid "耗时 "
+msgstr "Duration "
+
+# type: interface
+msgid "测速："
+msgstr "Speed Test:"
+
+# type: interface
+msgid "调试按钮"
+msgstr "Debug Buttons"
+
+# type: interface
+msgid "用于开发，部分应用开始调试"
+msgstr "For development; starts debugging for selected applications"
+
+# type: interface
+msgid "用于开发、提交bug。会自动对UID打码，保存在 .debug/images/ 文件夹中"
+msgstr "For development and bug reports. The UID is automatically masked and saved in the .debug/images/ folder."
+
+# type: interface
+msgid "停止正在运行的应用，不能恢复"
+msgstr "Stop the running application; this cannot be undone"
+
+# type: interface
+msgid "开始、暂停、恢复某个应用"
+msgstr "Start, pause, or resume an application"
+
+# type: interface
+msgid "获取失败时 可前往 https://ghproxy.link/ 查看自行更新"
+msgstr "If retrieval fails, visit https://ghproxy.link/ to update manually"
+
+# type: interface
+msgid "免费代理"
+msgstr "Free Proxy"
+
+# type: interface
+msgid "个人代理"
+msgstr "Personal Proxy"
+
+# type: interface
+msgid "网络代理"
+msgstr "Network Proxy"
+
+# type: interface
+msgid "免费代理仅能加速工具和模型下载，无法加速代码同步"
+msgstr "Free proxies can only accelerate tool and model downloads; they cannot accelerate code synchronization"
+
+# type: interface
+msgid "关闭后隐藏开发工具和实验功能，已有配置不会改变"
+msgstr "Disable this to hide developer tools and experimental features. Existing settings will not change."
+
+# type: interface
+msgid "开发者模式"
+msgstr "Developer Mode"
+
+# type: interface
+msgid "截图方法"
+msgstr "Screenshot Method"
+
+# type: interface
+msgid "不清楚用途时建议保持默认，下载失败或无法截图时再按说明调整"
+msgstr "If you are unsure what this does, keep the default. Adjust it as described only when downloads fail or screenshots cannot be captured."
+
+# type: interface
+msgid "脚本环境"
+msgstr "Script Environment"
+
+# type: interface
+msgid "未配置登录操作"
+msgstr "Login operation not configured"
+
+# type: interface
+msgid "单账号运行且自动打开游戏时，开启后会使用当前账号配置重登，关闭时则直接使用游戏当前登录状态"
+msgstr "When running a single account and opening the game automatically, enable this to log in again using the current account settings. When disabled, the current game login state is used directly."
+
+# type: interface
+msgid "强制重新登录"
+msgstr "Force Re-login"
+
+# type: interface
+msgid "填写游戏中切换B服账号时显示的用户名"
+msgstr "Enter the username shown when switching B-server accounts in the game"
+
+# type: interface
+msgid "B服为选择已有登录记录的用户进行登录，需要先手动登录游戏"
+msgstr "B-server login uses an existing login record and requires you to log in to the game manually first"
+
+# type: interface
+msgid "B服用户名"
+msgstr "B-server Username"
+
+# type: interface
+msgid "B服在登录时会采用BitBlt的截图方法用于识别登录框，登录后还原。"
+msgstr "When logging in to the B-server, BitBlt screenshots are used to recognize the login dialog, then the original method is restored."
+
+# type: interface
+msgid "B服使用提示"
+msgstr "B-server Usage Tips"
+
+# type: interface
+msgid "自定义窗口标题"
+msgstr "Custom Window Title"
+
+# type: interface
+msgid "点击启用后到各模块进行设置，各账户之间的设置是独立的。"
+msgstr "After enabling this, configure each module separately. Settings are independent between accounts."
+
+# type: interface
+msgid "多账户管理"
+msgstr "Multi-Account Management"
+
+# type: interface
+msgid "请求头不是合法的JSON格式"
+msgstr "The request headers are not valid JSON"
+
+# type: interface
+msgid "请求体不是合法的JSON格式"
+msgstr "The request body is not valid JSON"
+
+# type: interface
+msgid "URL、请求头或者请求体中必须包含 $content 变量"
+msgstr "The URL, request headers, or request body must contain the $content variable"
+
+# type: interface
+msgid "Webhook URL 未配置，无法推送"
+msgstr "Webhook URL is not configured; unable to send notifications"
+
+# type: interface
+msgid "cURL 命令已复制到剪贴板！"
+msgstr "cURL command copied to clipboard!"
+
+# type: interface
+msgid "Webhook URL 不能为空"
+msgstr "Webhook URL cannot be empty"
+
+# type: interface
+msgid "请先配置 Webhook URL"
+msgstr "Please configure the Webhook URL first"
+
+# type: interface
+msgid "测试推送失败: "
+msgstr "Test notification failed: "
+
+# type: interface
+msgid "已向所有已配置的通知方式发送测试消息"
+msgstr "Test messages sent through all configured notification methods"
+
+# type: interface
+msgid "正在向所有已配置的通知方式发送测试消息..."
+msgstr "Sending test messages through all configured notification methods..."
+
+# type: interface
+msgid "已向当前通知方式发送测试消息"
+msgstr "Test message sent through the current notification method"
+
+# type: interface
+msgid "选择后自动填充相关配置"
+msgstr "Automatically fill in related settings after selection"
+
+# type: interface
+msgid "生成 cURL 命令"
+msgstr "Generate cURL Command"
+
+# type: interface
+msgid "Unix 风格"
+msgstr "Unix Style"
+
+# type: interface
+msgid "PowerShell 风格"
+msgstr "PowerShell Style"
+
+# type: interface
+msgid "发送测试消息验证通知配置"
+msgstr "Send a test message to verify notification settings"
+
+# type: interface
+msgid "测试通知方式"
+msgstr "Test Notification Method"
+
+# type: interface
+msgid "测试全部"
+msgstr "Test All"
+
+# type: interface
+msgid "测试当前方式"
+msgstr "Test Current Method"
+
+# type: interface
+msgid "个人代理地址"
+msgstr "Personal Proxy Address"
+
+# type: interface
+msgid "一条龙运行通知"
+msgstr "OneDragon Run Notifications"
+
+# type: interface
+msgid "配置运行通知的推送方式或渠道，所有已配置的渠道都会启用"
+msgstr "Configure the push method or channel for run notifications; all configured channels will be enabled"
+
+# type: interface
+msgid "模型等资源的下载源 自动模式按系统语言推荐"
+msgstr "Download source for models and other resources; automatic mode recommends one based on the system language"
+
+# type: interface
+msgid "资源下载源"
+msgstr "Resource Download Source"
+
+# type: interface
+msgid "运行"
+msgstr "Run"
+
+# type: interface
+msgid ""
+"使用 AdapterInitMixin 的类必须实现 setValue 或 set_value 方法，或重写 "
+"_set_value_from_adapter 方法。"
+msgstr "Classes using AdapterInitMixin must implement setValue or set_value, or override _set_value_from_adapter."
+
+# type: interface
+msgid "加载配置项失败"
+msgstr "Failed to load configuration item"
+
+# type: interface
+msgid "节点通知"
+msgstr "Node Notifications"
+
+# type: interface
+msgid "返回"
+msgstr "Back"
+
+# type: interface
+msgid "原图"
+msgstr "Original Image"
+
+# type: interface
+msgid " 色彩空间"
+msgstr " Color Space"
+
+# type: interface
+msgid "色彩通道分析"
+msgstr "Color Channel Analysis"
+
+# type: interface
+msgid "无有效颜色信息"
+msgstr "No valid color information"
+
+# type: interface
+msgid "坐标"
+msgstr "Coordinates"
+
+# type: interface
+msgid "颜色信息"
+msgstr "Color Information"
+
+# type: interface
+msgid "测试版"
+msgstr "Test Version"
+
+# type: interface
+msgid "稳定版"
+msgstr "Stable Version"
+
+# type: interface
+msgid "获取启动器版本信息失败"
+msgstr "Failed to get launcher version information"
+
+# type: interface
+msgid "已完成"
+msgstr "Completed"
+
+# type: interface
+msgid "正在解压"
+msgstr "Extracting"
+
+# type: interface
+msgid "等待中"
+msgstr "Waiting"
+
+# type: interface
+msgid "重试"
+msgstr "Retry"
+
+# type: interface
+msgid "移除"
+msgstr "Remove"
+
+# type: interface
+msgid "取消中"
+msgstr "Canceling"
+
+# type: interface
+msgid "位置 "
+msgstr "Position "
+
+# type: interface
+msgid " 超出范围"
+msgstr " out of range"
+
+# type: interface
+msgid "启动中...大约需要10+秒"
+msgstr "Starting... takes approximately 10+ seconds"
+
+# type: interface
+msgid "一键安装 开始下一个"
+msgstr "One-Click Installation Start Next"
+
+# type: interface
+msgid "一键安装 开始"
+msgstr "One-Click Installation Start"
+
+# type: interface
+msgid "请先查看安装指南再继续"
+msgstr "Please view the installation guide before continuing"
+
+# type: interface
+msgid "全部"
+msgstr "All"
+
+# type: interface
+msgid "我知道你很急 但你先别急 正在运行了"
+msgstr "I know you are in a hurry, but please wait—the application is already running"
+
+# type: interface
+msgid "默认安装"
+msgstr "Default Installation"
+
+# type: interface
+msgid "代码版本"
+msgstr "Code Version"
+
+# type: interface
+msgid "Python 虚拟环境"
+msgstr "Python Virtual Environment"
+
+# type: interface
+msgid "运行环境"
+msgstr "Runtime Environment"
+
+# type: interface
+msgid "异常"
+msgstr "Exception"
+
+# type: interface
+msgid "失败"
+msgstr "Failed"
+
+# type: interface
+msgid "请选择..."
+msgstr "Please select..."
+
+# type: interface
+msgid "软件科研"
+msgstr "Software Research"
+
+# type: interface
+msgid "游戏攻略"
+msgstr "Game Guides"
+
+# type: interface
+msgid "公告要闻"
+msgstr "Announcements and News"
+
+# type: interface
+msgid "保存相关文件失败: "
+msgstr "Failed to save related files: "
+
+# type: interface
+msgid "下载相关文件失败: "
+msgstr "Failed to download related files: "
+
+# type: interface
+msgid "相关文件已下载: "
+msgstr "Related files downloaded: "
+
+# type: interface
+msgid "保存JSON缓存失败: "
+msgstr "Failed to save JSON cache: "
+
+# type: interface
+msgid "JSON缓存已保存: "
+msgstr "JSON cache saved: "
+
+# type: interface
+msgid "检查缓存文件时间失败: "
+msgstr "Failed to check cache file time: "
+
+# type: interface
+msgid "创建缓存目录失败: "
+msgstr "Failed to create cache directory: "
+
+# type: interface
+msgid "缓存目录已确保存在: "
+msgstr "Cache directory ensured to exist: "
+
+# type: interface
+msgid "读取缓存文件失败: "
+msgstr "Failed to read cache file: "
+
+# type: interface
+msgid "保存banner图片到缓存失败: "
+msgstr "Failed to save banner image to cache: "
+
+# type: interface
+msgid "banner图片已缓存: "
+msgstr "Banner image cached: "
+
+# type: interface
+msgid "从缓存加载图片失败: "
+msgstr "Failed to load image from cache: "
+
+# type: interface
+msgid "从缓存加载banner图片: "
+msgstr "Loaded banner image from cache: "
+
+# type: interface
+msgid "加载banner图片失败: "
+msgstr "Failed to load banner image: "
+
+# type: interface
+msgid "画中画已开启，游戏切到后台会自动显示，点击画中画切回游戏"
+msgstr "Picture-in-picture enabled. It will appear automatically when the game is in the background; click picture-in-picture to return to the game."
+
+# type: interface
+msgid "画中画已关闭，点击开启后游戏切到后台自动显示画中画"
+msgstr "Picture-in-picture disabled. Enable it to show picture-in-picture automatically when the game is in the background."
+
+# type: interface
+msgid "画中画"
+msgstr "Picture-in-picture"
+
+# type: interface
+msgid "可用资源更新"
+msgstr "Available Resource Updates"
+
+# type: interface
+msgid ""
+";  /* 根据主题设置文字颜色 */\n"
+"                    font-size: 14px;\n"
+"                    padding: 5px;\n"
+"                    font-family: Arial, sans-serif;\n"
+"                }\n"
+"            "
+msgstr ";  /* Set text color according to the theme */\n                    font-size: 14px;\n                    padding: 5px;\n                    font-family: Arial, sans-serif;\n                }\n            "
+
+# type: interface
+msgid ""
+";  /* 根据主题设置文字颜色 */\n"
+"                    font-size: 16px;\n"
+"                    padding: 5px;\n"
+"                    font-style: italic;\n"
+"                    font-family: Arial, sans-serif;\n"
+"                }\n"
+"            "
+msgstr ";  /* Set text color according to the theme */\n                    font-size: 16px;\n                    padding: 5px;\n                    font-style: italic;\n                    font-family: Arial, sans-serif;\n                }\n            "
+
+# type: interface
+msgid ""
+";  /* 根据主题设置文字颜色 */\n"
+"                    font-size: 16px;\n"
+"                    padding: 10px 20px;  /* 增加内边距以适应多行文本 */\n"
+"                    font-family: Arial, sans-serif;\n"
+"                }\n"
+"            "
+msgstr ";  /* Set text color according to the theme */\n                    font-size: 16px;\n                    padding: 10px 20px;  /* Increase padding for multi-line text */\n                    font-family: Arial, sans-serif;\n                }\n            "
+
+# type: interface
+msgid ""
+";  /* 根据主题设置文字颜色 */\n"
+"                font-size: 18px;\n"
+"                font-weight: bold;\n"
+"                padding: 5px;\n"
+"                font-family: Arial, sans-serif;\n"
+"            }\n"
+"        "
+msgstr ";  /* Set text color according to the theme */\n                font-size: 18px;\n                font-weight: bold;\n                padding: 5px;\n                font-family: Arial, sans-serif;\n            }\n        "
+
+# type: interface
+msgid ""
+";  /* 根据主题设置文字颜色 */\n"
+"                    font-size: 20px;\n"
+"                    font-weight: bold;\n"
+"                    padding: 10px;\n"
+"                    font-family: Arial, sans-serif;\n"
+"                    border-bottom: 1px solid "
+msgstr ";  /* Set text color according to the theme */\n                    font-size: 20px;\n                    font-weight: bold;\n                    padding: 10px;\n                    font-family: Arial, sans-serif;\n                    border-bottom: 1px solid "
+
+# type: interface
+msgid "加载贡献者信息失败: "
+msgstr "Failed to load contributor information: "
+
+# type: interface
+msgid "加载贡献者数据失败: "
+msgstr "Failed to load contributor data: "
+
+# type: interface
+msgid "未获取到贡献者信息"
+msgstr "No contributor information obtained"
+
+# type: interface
+msgid "其他贡献者"
+msgstr "Other Contributors"
+
+# type: interface
+msgid "近期贡献者"
+msgstr "Recent Contributors"
+
+# type: interface
+msgid "社区维护者"
+msgstr "Community Maintainers"
+
+# type: interface
+msgid "文档贡献者"
+msgstr "Documentation Contributors"
+
+# type: interface
+msgid "核心贡献者"
+msgstr "Core Contributors"
+
+# type: interface
+msgid "contributors.yaml文件不存在"
+msgstr "contributors.yaml file does not exist"
+
+# type: interface
+msgid "感谢您的支持与陪伴"
+msgstr "Thank you for your support and companionship"
+
+# type: interface
+msgid "特别鸣谢"
+msgstr "Special Thanks"
+
+# type: interface
+msgid "JSON 代码编辑器"
+msgstr "JSON Code Editor"
+
+# type: interface
+msgid "请输入 JSON 格式的请求体"
+msgstr "Please enter a JSON-formatted request body"
+
+# type: interface
+msgid "打开外部编辑器失败: %s"
+msgstr "Failed to open external editor: %s"
+
+# type: interface
+msgid "外部编辑"
+msgstr "External Editor"
+
+# type: interface
+msgid "# 输入 Python 脚本"
+msgstr "# Enter Python Script"
+
+# type: interface
+msgid "Python 脚本编辑器"
+msgstr "Python Script Editor"
+
+# type: interface
+msgid "代码编辑器"
+msgstr "Code Editor"
+
+# type: interface
+msgid "紧凑化 JSON 失败"
+msgstr "Failed to compact JSON"
+
+# type: interface
+msgid "格式化 JSON 失败"
+msgstr "Failed to format JSON"
+
+# type: interface
+msgid "Unix时间戳 (1703004645)"
+msgstr "Unix timestamp (1703004645)"
+
+# type: interface
+msgid "ISO时间戳 (2024-12-19T15:30:45)"
+msgstr "ISO timestamp (2024-12-19T15:30:45)"
+
+# type: interface
+msgid "时间戳 (2024-12-19 15:30:45)"
+msgstr "Timestamp (2024-12-19 15:30:45)"
+
+# type: interface
+msgid "图片变量"
+msgstr "Image Variable"
+
+# type: interface
+msgid "内容变量"
+msgstr "Content Variable"
+
+# type: interface
+msgid "标题变量"
+msgstr "Title Variable"
+
+# type: interface
+msgid "正在取消下载..."
+msgstr "Canceling download..."
+
+# type: interface
+msgid "当前没有下载任务在运行"
+msgstr "No download task is currently running"
+
+# type: interface
+msgid "未选择资源"
+msgstr "No resource selected"
+
+# type: interface
+msgid "下载资源失败 请尝试更换代理"
+msgstr "Failed to download resource. Try changing the proxy."
+
+# type: interface
+msgid "下载已取消"
+msgstr "Download canceled"
+
+# type: interface
+msgid "下载资源成功"
+msgstr "Resource downloaded successfully"
+
+# type: interface
+msgid "先看说明 再使用与提问"
+msgstr "Read the instructions before using or asking questions"
+
+# type: interface
+msgid "使用说明"
+msgstr "Instructions"
+
+# type: interface
+msgid "点此查看指南"
+msgstr "Click here to view the guide"
+
+# type: interface
+msgid "已选 "
+msgstr "Selected "
+
+# type: interface
+msgid " 项"
+msgstr " items"
+
+# type: interface
+msgid "密码错误，请重新输入"
+msgstr "Incorrect password. Please try again."
+
+# type: interface
+msgid "请输入密码"
+msgstr "Please enter the password"
+
+# type: interface
+msgid "无法找到包含 "
+msgstr "Unable to find the project root directory containing "
+
+# type: interface
+msgid " 的项目根目录"
+msgstr "."
+
+# type: interface
+msgid "上传者"
+msgstr "Uploader"
+
+# type: interface
+msgid "上传时间"
+msgstr "Upload Time"
+
+# type: interface
+msgid ""
+"本软件完全<font color='red'>开源 免费</font><br>\n"
+"不要在<font color='red'>第三方渠道</font>购买<br>\n"
+"谨防<font color='red'>诈骗 盗号</font>"
+msgstr "This software is completely <font color='red'>open source and free</font><br>\nDo not purchase it through <font color='red'>third-party channels</font><br>\nBeware of <font color='red'>scams and account theft</font>"
+
+# type: interface
+msgid "已复制版本号"
+msgstr "Version number copied"
+
+# type: interface
+msgid "ⓘ 程序版本 "
+msgstr "ⓘ Program Version "
+
+# type: interface
+msgid "ⓘ 安装器版本 "
+msgstr "ⓘ Installer Version "
+
+# type: interface
+msgid "下载"
+msgstr "Download"
+
+# type: interface
+msgid "下载 "
+msgstr "Download "
+
+# type: interface
+msgid "ⓘ 代码版本 "
+msgstr "ⓘ Code Version "
+
+# type: interface
+msgid "ⓘ 启动器版本 "
+msgstr "ⓘ Launcher Version "
+
+# type: interface
+msgid "ⓘ 问题反馈"
+msgstr "ⓘ Feedback"
+
+# type: interface
+msgid "下载队列"
+msgstr "Download Queue"
+
+# type: interface
+msgid "ⓘ 代码版本 未知"
+msgstr "ⓘ Code Version Unknown"
+
+# type: interface
+msgid "ⓘ 启动器版本 未知"
+msgstr "ⓘ Launcher Version Unknown"

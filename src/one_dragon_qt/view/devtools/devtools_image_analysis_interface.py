@@ -64,7 +64,7 @@ class PipelineNameDialog(MessageBoxBase):
 
 
 class DevtoolsImageAnalysisInterface(VerticalScrollInterface):
-    _CREATE_NEW_PIPELINE_TEXT = '[ 新建流水线... ]'
+    _CREATE_NEW_PIPELINE_TEXT = gt('[ 新建流水线... ]')
 
     def __init__(self, ctx: OneDragonContext, parent=None):
         self.ctx: OneDragonContext = ctx
@@ -78,7 +78,7 @@ class DevtoolsImageAnalysisInterface(VerticalScrollInterface):
             content_widget=self._init_content_widget(),
             object_name='devtools_image_analysis_interface',
             parent=parent,
-            nav_text_cn='图像分析'
+            nav_text_cn=gt('图像分析')
         )
 
         self._init_signal_connections()
@@ -796,8 +796,8 @@ class DevtoolsImageAnalysisInterface(VerticalScrollInterface):
             center_hsv = hsv_result['center_hsv']
             diff_hsv = hsv_result['diff_hsv']
 
-            content += f"\nHSV中心: {center_hsv}"
-            content += f"\nHSV差值: {diff_hsv}"
+            content += f"gt(\nHSV中心: ){center_hsv}"
+            content += f"gt(\nHSV差值: ){diff_hsv}"
 
         # 显示结果
         InfoBar.success(

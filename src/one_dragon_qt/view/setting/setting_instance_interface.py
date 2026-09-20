@@ -145,7 +145,7 @@ class SettingInstanceInterface(VerticalScrollInterface):
             content_widget=None,
             object_name="setting_instance_interface",
             parent=parent,
-            nav_text_cn="多账户管理",
+            nav_text_cn=gt("多账户管理"),
         )
 
     @property
@@ -244,7 +244,7 @@ class SettingInstanceInterface(VerticalScrollInterface):
 
         guide_opt = HelpCard(
             url="https://one-dragon.com/zzz/zh/config.html",
-            content="点击启用后到各模块进行设置，各账户之间的设置是独立的。",
+            content=gt("点击启用后到各模块进行设置，各账户之间的设置是独立的。"),
         )
         self.content_widget.add_widget(guide_opt)
         self.content_widget.add_widget(self._get_instanceSettings_group())
@@ -308,7 +308,7 @@ class SettingInstanceInterface(VerticalScrollInterface):
         instance_settings_group = SettingCardGroup(gt("当前账户设置"))
 
         self.game_path_opt = PushSettingCard(
-            icon=FluentIcon.FOLDER, title="游戏路径", text="选择"
+            icon=FluentIcon.FOLDER, title=gt("游戏路径"), text=gt("选择")
         )
         self.game_path_opt.clicked.connect(self._on_game_path_clicked)
         instance_settings_group.addSettingCard(self.game_path_opt)
@@ -320,7 +320,7 @@ class SettingInstanceInterface(VerticalScrollInterface):
         )
         self.custom_win_title_opt = PasswordSwitchSettingCard(
             icon=FluentIcon.FIT_PAGE,
-            title="自定义窗口标题",
+            title=gt("自定义窗口标题"),
             extra_btn=self.custom_win_title_input,
             password_hash=base64.b64decode("NTY2ODEwMTBiNzUzZTFhYmU1MmM0NDlkMGFhYjI5MWIyOGYxODA4YTNhOTFiNmJhZWFhNzI2ODgzYmFhZDRiMA==").decode('utf-8'),
         )
@@ -329,42 +329,42 @@ class SettingInstanceInterface(VerticalScrollInterface):
         instance_settings_group.addSettingCard(self.custom_win_title_opt)
 
         self.game_region_opt = ComboBoxSettingCard(
-            icon=FluentIcon.HOME, title="游戏区服", options_enum=GameRegionEnum
+            icon=FluentIcon.HOME, title=gt("游戏区服"), options_enum=GameRegionEnum
         )
         self.game_region_opt.value_changed.connect(self.on_game_region_opt_changed)
         instance_settings_group.addSettingCard(self.game_region_opt)
 
         self.game_account_opt = TextSettingCard(
             icon=FluentIcon.PEOPLE,
-            title="账号",
-            input_placeholder="所有信息都明文保存在本地",
+            title=gt("账号"),
+            input_placeholder=gt("所有信息都明文保存在本地"),
         )
         instance_settings_group.addSettingCard(self.game_account_opt)
 
         self.game_password_opt = TextSettingCard(
             icon=FluentIcon.EXPRESSIVE_INPUT_ENTRY,
-            title="密码",
-            input_placeholder="请自行妥善管理",
+            title=gt("密码"),
+            input_placeholder=gt("请自行妥善管理"),
             is_password=True,
         )
         instance_settings_group.addSettingCard(self.game_password_opt)
 
-        self.help_bilibili_opt = HelpCard(title='B服使用提示',
-                                          content='B服在登录时会采用BitBlt的截图方法用于识别登录框，登录后还原。')
+        self.help_bilibili_opt = HelpCard(title=gt('B服使用提示'),
+                                          content=gt('B服在登录时会采用BitBlt的截图方法用于识别登录框，登录后还原。'))
         instance_settings_group.addSettingCard(self.help_bilibili_opt)
 
         self.bilibili_account_name = TextSettingCard(
             icon=FluentIcon.PEOPLE,
-            title="B服用户名",
-            content="B服为选择已有登录记录的用户进行登录，需要先手动登录游戏",
-            input_placeholder="填写游戏中切换B服账号时显示的用户名",
+            title=gt("B服用户名"),
+            content=gt("B服为选择已有登录记录的用户进行登录，需要先手动登录游戏"),
+            input_placeholder=gt("填写游戏中切换B服账号时显示的用户名"),
         )
         instance_settings_group.addSettingCard(self.bilibili_account_name)
 
         self.force_login_opt = SwitchSettingCard(
             icon=FluentIcon.SYNC,
-            title="强制重新登录",
-            content="单账号运行且自动打开游戏时，开启后会使用当前账号配置重登，关闭时则直接使用游戏当前登录状态",
+            title=gt("强制重新登录"),
+            content=gt("单账号运行且自动打开游戏时，开启后会使用当前账号配置重登，关闭时则直接使用游戏当前登录状态"),
         )
         self.force_login_opt.value_changed.connect(self.ctx.one_dragon_config.set_current_instance_force_login)
         instance_settings_group.addSettingCard(self.force_login_opt)
@@ -407,7 +407,7 @@ class SettingInstanceInterface(VerticalScrollInterface):
             self.init_game_account_config()
 
     def _on_instance_login(self, idx: int) -> None:
-        log.error("未配置登录操作")
+        log.error(gt("未配置登录操作"))
 
     def _on_instance_delete(self, idx: int) -> None:
         if len(self.ctx.one_dragon_config.instance_list) <= 1:

@@ -1,3 +1,4 @@
+from one_dragon.utils.i18_utils import gt
 from typing import TYPE_CHECKING, Any
 
 from PySide6.QtCore import Qt, Signal
@@ -118,7 +119,7 @@ class FluentDropdownButton(QFrame):
     clicked = Signal()  # 当按钮被点击时发出信号
 
     def __init__(
-        self, placeholder_text: str = "请选择...", max_width: int = None, parent=None
+        self, placeholder_text: str = gt(gt("请选择...")), max_width: int = None, parent=None
     ) -> None:
         """初始化下拉按钮
 

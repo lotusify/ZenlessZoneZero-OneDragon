@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from one_dragon.utils.i18_utils import gt
 import ctypes
 import sys
 from ctypes import wintypes
@@ -276,17 +277,17 @@ class ResizablePanel(QFrame):
         layout.addWidget(self._status_label, 0)
         layout.addStretch(1)
 
-        self._btn_font_dec = self._create_toolbar_button("A\u2212", "减小字号 (Ctrl+滚轮下)", self._on_font_dec)
+        self._btn_font_dec = self._create_toolbar_button("A\u2212", gt("减小字号 (Ctrl+滚轮下)"), self._on_font_dec)
         layout.addWidget(self._btn_font_dec)
-        self._btn_font_inc = self._create_toolbar_button("A\u207A", "增大字号 (Ctrl+滚轮上)", self._on_font_inc)
+        self._btn_font_inc = self._create_toolbar_button("A\u207A", gt("增大字号 (Ctrl+滚轮上)"), self._on_font_inc)
         layout.addWidget(self._btn_font_inc)
-        self._btn_panel_dec = self._create_toolbar_button("\u25A3\u2212", "降低面板不透明度", self._on_panel_dec)
+        self._btn_panel_dec = self._create_toolbar_button("\u25A3\u2212", gt("降低面板不透明度"), self._on_panel_dec)
         layout.addWidget(self._btn_panel_dec)
-        self._btn_panel_inc = self._create_toolbar_button("\u25A3\u207A", "提高面板不透明度", self._on_panel_inc)
+        self._btn_panel_inc = self._create_toolbar_button("\u25A3\u207A", gt("提高面板不透明度"), self._on_panel_inc)
         layout.addWidget(self._btn_panel_inc)
-        self._btn_mode_toggle = self._create_toolbar_button("", "切换锁定/自由模式", self._on_toggle_free_mode, 44)
+        self._btn_mode_toggle = self._create_toolbar_button("", gt("切换锁定/自由模式"), self._on_toggle_free_mode, 44)
         layout.addWidget(self._btn_mode_toggle)
-        self._btn_close_edit = self._create_toolbar_button("\u2715", "关闭编辑模式", self._on_close_edit_mode)
+        self._btn_close_edit = self._create_toolbar_button("\u2715", gt("关闭编辑模式"), self._on_close_edit_mode)
         layout.addWidget(self._btn_close_edit)
 
         self.body_layout.addWidget(self._toolbar, 0)
@@ -345,11 +346,11 @@ class ResizablePanel(QFrame):
             self._status_label.setText(f"{mode_text} {dock_text} F{self._font_size} P{self._panel_opacity}")
         if hasattr(self, "_btn_mode_toggle"):
             if self._free_mode:
-                self._btn_mode_toggle.setText("自由")
-                self._btn_mode_toggle.setToolTip("切换到锁定模式")
+                self._btn_mode_toggle.setText(gt("自由"))
+                self._btn_mode_toggle.setToolTip(gt("切换到锁定模式"))
             else:
-                self._btn_mode_toggle.setText("锁定")
-                self._btn_mode_toggle.setToolTip("切换到自由模式")
+                self._btn_mode_toggle.setText(gt("锁定"))
+                self._btn_mode_toggle.setToolTip(gt("切换到自由模式"))
 
     def wheelEvent(self, event: QWheelEvent) -> None:
         if self._edit_mode and event.modifiers() & Qt.KeyboardModifier.ControlModifier:

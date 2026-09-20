@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from one_dragon.utils.i18_utils import gt
 import time
 from collections.abc import Callable
 from dataclasses import dataclass, field
@@ -108,7 +109,7 @@ class DownloadTaskWorker(QThread):
             )
         except Exception as exc:
             error_message = str(exc)
-            log.error('下载队列任务失败', exc_info=True)
+            log.error(gt('下载队列任务失败'), exc_info=True)
         finally:
             if self.task.spec.after_download is not None:
                 try:
@@ -117,14 +118,14 @@ class DownloadTaskWorker(QThread):
                             ResourceDownloadProgress(
                                 phase='applying',
                                 progress=1,
-                                message='正在应用更新',
+                                message=gt('正在应用更新'),
                             )
                         )
                     self.task.spec.after_download(success)
                 except Exception as exc:
                     success = False
                     error_message = str(exc)
-                    log.error('下载任务后处理失败', exc_info=True)
+                    log.error(gt('下载任务后处理失败'), exc_info=True)
 
         cancelled = self.task.progress_signal.get('signal') == 'cancel'
         self.task_finished.emit(success, cancelled, error_message)
@@ -192,7 +193,7 @@ class DownloadQueueService(QObject):
             return
         if task.state == ResourceDownloadTaskState.WAITING:
             task.state = ResourceDownloadTaskState.CANCELLED
-            task.progress = ResourceDownloadProgress(phase='cancelled', message='已取消')
+            task.progress = ResourceDownloadProgress(phase='cancelled', message=gt(gt('已取消')))
             self.task_updated.emit(task)
             self.queue_updated.emit()
             return
@@ -205,7 +206,7 @@ class DownloadQueueService(QObject):
                 total_bytes=task.progress.total_bytes,
                 bytes_per_second=task.progress.bytes_per_second,
                 progress=task.progress.progress,
-                message='正在取消',
+                message=gt('正在取消'),
             )
             self._worker.cancel()
             self.task_updated.emit(task)
@@ -361,18 +362,18 @@ class DownloadQueueService(QObject):
         success, cancelled, error_message = self._worker_result or (
             False,
             task.progress_signal.get('signal') == 'cancel',
-            '下载线程异常结束',
+            gt('下载线程异常结束'),
         )
         task.error_message = error_message
         if success:
             task.state = ResourceDownloadTaskState.SUCCEEDED
-            task.progress = ResourceDownloadProgress(phase='succeeded', progress=1, message='下载完成')
+            task.progress = ResourceDownloadProgress(phase='succeeded', progress=1, message=gt('下载完成'))
         elif cancelled:
             task.state = ResourceDownloadTaskState.CANCELLED
             task.progress = ResourceDownloadProgress(phase='cancelled', message='已取消')
         else:
             task.state = ResourceDownloadTaskState.FAILED
-            message = error_message or task.progress.message or '下载失败'
+            message = error_message or task.progress.message or gt('下载失败')
             task.progress = ResourceDownloadProgress(
                 source_id=task.progress.source_id,
                 phase='failed',

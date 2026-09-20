@@ -16,7 +16,7 @@ class LauncherInstallCard(BaseInstallCard):
         BaseInstallCard.__init__(
             self,
             ctx=ctx,
-            title_cn='启动器',
+            title_cn=gt('启动器'),
             install_method=self.install_launcher
         )
 

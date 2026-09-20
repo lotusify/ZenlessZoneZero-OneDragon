@@ -61,12 +61,12 @@ class DownloadRunner(QThread):
             result = False
 
         if result:
-            message = '下载资源成功'
+            message = gt('下载资源成功')
         else:
             if self.progress_signal.get('signal') == 'cancel':
-                message = '下载已取消'
+                message = gt('下载已取消')
             else:
-                message = '下载资源失败 请尝试更换代理'
+                message = gt('下载资源失败 请尝试更换代理')
 
         self.finished.emit(result, message)
 
@@ -356,10 +356,10 @@ class CommonDownloaderSettingCard(MultiPushSettingCard):
             return
 
         if self.download_runner is None:
-            log.warning('未选择资源')
+            log.warning(gt(gt('未选择资源')))
             return
         if self.download_runner.isRunning():
-            log.warning('我知道你很急 但你先别急 正在运行了')
+            log.warning(gt('我知道你很急 但你先别急 正在运行了'))
             return
 
         # 重置取消信号
@@ -377,12 +377,12 @@ class CommonDownloaderSettingCard(MultiPushSettingCard):
             log.warning('未选择资源')
             return
         if not self.download_runner.isRunning():
-            log.warning('当前没有下载任务在运行')
+            log.warning(gt('当前没有下载任务在运行'))
             return
 
         # 取消下载
         self.download_runner.cancel()
-        log.info('正在取消下载...')
+        log.info(gt('正在取消下载...'))
 
         # 更新UI状态：禁用取消按钮，显示取消中
         self.download_btn.setText(gt('取消中'))

@@ -51,7 +51,7 @@ class SettingPushInterface(VerticalScrollInterface):
             self,
             object_name='setting_push_interface',
             content_widget=None, parent=parent,
-            nav_text_cn='通知设置',
+            nav_text_cn=gt('通知设置'),
             nav_icon=FluentIcon.MESSAGE
         )
         self.ctx = ctx
@@ -60,24 +60,24 @@ class SettingPushInterface(VerticalScrollInterface):
         content_widget = Column()
 
         self.help_opt = HelpCard(
-            title='设置说明',
-            content='配置运行通知的推送方式或渠道，所有已配置的渠道都会启用',
+            title=gt('设置说明'),
+            content=gt('配置运行通知的推送方式或渠道，所有已配置的渠道都会启用'),
         )
         content_widget.add_widget(self.help_opt)
 
         self.title_opt = TextSettingCard(
             icon=FluentIcon.MESSAGE,
-            title='自定义通知标题',
-            input_placeholder='一条龙运行通知'
+            title=gt('自定义通知标题'),
+            input_placeholder=gt('一条龙运行通知')
         )
         content_widget.add_widget(self.title_opt)
 
-        self.send_image_opt = SwitchSettingCard(icon=FluentIcon.PHOTO, title='通知中附带图片')
+        self.send_image_opt = SwitchSettingCard(icon=FluentIcon.PHOTO, title=gt('通知中附带图片'))
         content_widget.add_widget(self.send_image_opt)
 
         self.proxy_opt = ComboBoxSettingCard(
             icon=FluentIcon.GLOBE,
-            title='代理设置',
+            title=gt('代理设置'),
             options_enum=PushProxy,
         )
         self.proxy_opt.value_changed.connect(self._set_proxy_input_visibility)
@@ -85,19 +85,19 @@ class SettingPushInterface(VerticalScrollInterface):
 
         self.proxy_input_opt = TextSettingCard(
             icon=FluentIcon.GLOBE,
-            title='个人代理地址',
+            title=gt('个人代理地址'),
         )
         content_widget.add_widget(self.proxy_input_opt)
 
-        self.test_current_btn = PushButton(text='测试当前方式', icon=FluentIcon.SEND, parent=self)
+        self.test_current_btn = PushButton(text=gt('测试当前方式'), icon=FluentIcon.SEND, parent=self)
         self.test_current_btn.clicked.connect(self._send_test_message)
-        self.test_all_btn = PushButton(text='测试全部', icon=FluentIcon.SEND_FILL, parent=self)
+        self.test_all_btn = PushButton(text=gt('测试全部'), icon=FluentIcon.SEND_FILL, parent=self)
         self.test_all_btn.clicked.connect(self._send_test_all_message)
 
         self.test_notification_card = MultiPushSettingCard(
             icon=FluentIcon.MESSAGE,
-            title='测试通知方式',
-            content='发送测试消息验证通知配置',
+            title=gt('测试通知方式'),
+            content=gt('发送测试消息验证通知配置'),
             btn_list=[self.test_current_btn, self.test_all_btn]
         )
         content_widget.add_widget(self.test_notification_card)
@@ -105,7 +105,7 @@ class SettingPushInterface(VerticalScrollInterface):
         # 通知方式 — 手风琴组：下拉框作为头部，渠道配置项作为子卡片
         self.notification_method_opt = ComboBoxSettingCard(
             icon=FluentIcon.MESSAGE,
-            title='通知方式',
+            title=gt(gt('通知方式')),
             options_list=[
                 ConfigItem(label=i.channel_name, value=i.channel_id)
                 for i in self.ctx.push_service.channels
@@ -119,20 +119,20 @@ class SettingPushInterface(VerticalScrollInterface):
         content_widget.add_widget(channel_group)
 
         # 预创建特殊卡片（稍后按渠道分配）
-        self.pwsh_curl_btn = PushButton(text='PowerShell 风格')
+        self.pwsh_curl_btn = PushButton(text=gt('PowerShell 风格'))
         self.pwsh_curl_btn.clicked.connect(lambda: self._generate_curl('pwsh'))
-        self.unix_curl_btn = PushButton(text='Unix 风格')
+        self.unix_curl_btn = PushButton(text=gt('Unix 风格'))
         self.unix_curl_btn.clicked.connect(lambda: self._generate_curl('unix'))
-        self.curl_btn = MultiPushSettingCard(icon=FluentIcon.CODE, title='生成 cURL 命令', btn_list=[self.pwsh_curl_btn, self.unix_curl_btn])
+        self.curl_btn = MultiPushSettingCard(icon=FluentIcon.CODE, title=gt('生成 cURL 命令'), btn_list=[self.pwsh_curl_btn, self.unix_curl_btn])
         self.curl_btn.setVisible(False)
 
         email_services = PushEmailServices.load_services()
         service_options = [ConfigItem(label=name, value=name, desc="") for name in email_services]
         self.email_service_opt = EditableComboBoxSettingCard(
             icon=FluentIcon.MESSAGE,
-            title='邮箱服务选择',
+            title=gt('邮箱服务选择'),
             options_list=service_options,
-            input_placeholder='选择后自动填充相关配置'
+            input_placeholder=gt('选择后自动填充相关配置')
         )
         self.email_service_opt.value_changed.connect(lambda idx, val: self._on_email_service_selected(val))
         self.email_service_opt.combo_box.setFixedWidth(320)
@@ -253,16 +253,16 @@ class SettingPushInterface(VerticalScrollInterface):
             if not ok:
                 self._show_error_message(msg)
             else:
-                self._show_success_message("已向当前通知方式发送测试消息")
+                self._show_success_message(gt("已向当前通知方式发送测试消息"))
         except ValueError as e:
             self._show_error_message(str(e))
         except Exception as e:
-            self._show_error_message(f"测试推送失败: {str(e)}")
+            self._show_error_message(f"gt(gt(测试推送失败: )){str(e)}")
 
     def _send_test_all_message(self):
         """发送测试消息到所有已配置的通知方式"""
         try:
-            self._show_success_message("正在向所有已配置的通知方式发送测试消息...")
+            self._show_success_message(gt("正在向所有已配置的通知方式发送测试消息..."))
             ok, msg = self.ctx.push_service.push(
                 title=gt('测试推送通知'),
                 content=gt('这是一条测试消息'),
@@ -271,7 +271,7 @@ class SettingPushInterface(VerticalScrollInterface):
             if not ok:
                 self._show_error_message(msg)
             else:
-                self._show_success_message("已向所有已配置的通知方式发送测试消息")
+                self._show_success_message(gt("已向所有已配置的通知方式发送测试消息"))
         except ValueError as e:
             self._show_error_message(str(e))
         except Exception as e:
@@ -369,7 +369,7 @@ class SettingPushInterface(VerticalScrollInterface):
 
         # 检查必需的 URL 配置
         if not config['url']:
-            self._show_error_message("请先配置 Webhook URL")
+            self._show_error_message(gt("请先配置 Webhook URL"))
             return
 
         # 使用 CurlGenerator 处理配置
@@ -377,12 +377,12 @@ class SettingPushInterface(VerticalScrollInterface):
         curl_command = curl_generator.generate_curl_command(config, style)
 
         if not curl_command:
-            self._show_error_message("Webhook URL 不能为空")
+            self._show_error_message(gt("Webhook URL 不能为空"))
             return
 
         # 复制到剪贴板
         PcClipboard.copy_string(curl_command)
-        self._show_success_message("cURL 命令已复制到剪贴板！")
+        self._show_success_message(gt("cURL 命令已复制到剪贴板！"))
 
     def _validate_webhook_config(self) -> None:
         """
@@ -392,7 +392,7 @@ class SettingPushInterface(VerticalScrollInterface):
         config = self.ctx.push_service.get_channel_config('WEBHOOK')
         url = config.get('URL')
         if not url:
-            raise ValueError("Webhook URL 未配置，无法推送")
+            raise ValueError(gt("Webhook URL 未配置，无法推送"))
 
         body = config.get('BODY')
         headers = config.get('HEADERS')
@@ -400,14 +400,14 @@ class SettingPushInterface(VerticalScrollInterface):
 
         # 检查是否包含 $content
         if not any('$content' in str(field) for field in [url, body, headers]):
-            raise ValueError("URL、请求头或者请求体中必须包含 $content 变量")
+            raise ValueError(gt("URL、请求头或者请求体中必须包含 $content 变量"))
 
         # 如果是JSON格式，验证JSON的合法性
         if content_type == "application/json" and not self._validate_json_format(body):
-            raise ValueError("请求体不是合法的JSON格式")
+            raise ValueError(gt("请求体不是合法的JSON格式"))
 
         if headers and headers != "{}" and not self._validate_json_format(headers):
-            raise ValueError("请求头不是合法的JSON格式")
+            raise ValueError(gt("请求头不是合法的JSON格式"))
 
     def _validate_json_format(self, json_str: str) -> bool:
         """验证JSON格式的合法性"""
@@ -420,7 +420,7 @@ class SettingPushInterface(VerticalScrollInterface):
     def _show_success_message(self, message: str):
         """显示成功消息提示"""
         InfoBar.success(
-            title='成功',
+            title=gt('成功'),
             content=message,
             orient=InfoBarPosition.TOP,
             isClosable=True,
@@ -431,7 +431,7 @@ class SettingPushInterface(VerticalScrollInterface):
     def _show_error_message(self, message: str):
         """显示错误消息提示"""
         InfoBar.error(
-            title='错误',
+            title=gt('错误'),
             content=message,
             orient=InfoBarPosition.TOP,
             isClosable=True,

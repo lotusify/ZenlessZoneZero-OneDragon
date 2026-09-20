@@ -177,14 +177,14 @@ class DownloadQueueItemWidget(QWidget):
         self.status_label.setText(self._status_text())
 
         action_icon, action_tooltip = {
-            ResourceDownloadTaskState.WAITING: (FluentIcon.CLOSE, '取消'),
+            ResourceDownloadTaskState.WAITING: (FluentIcon.CLOSE, gt(gt(gt(gt('取消'))))),
             ResourceDownloadTaskState.DOWNLOADING: (FluentIcon.CLOSE, '取消'),
             ResourceDownloadTaskState.EXTRACTING: (FluentIcon.CLOSE, '取消'),
             ResourceDownloadTaskState.APPLYING: (FluentIcon.CLOSE, '取消'),
-            ResourceDownloadTaskState.CANCELLING: (FluentIcon.CLOSE, '取消中'),
-            ResourceDownloadTaskState.CANCELLED: (FluentIcon.DELETE, '移除'),
+            ResourceDownloadTaskState.CANCELLING: (FluentIcon.CLOSE, gt('取消中')),
+            ResourceDownloadTaskState.CANCELLED: (FluentIcon.DELETE, gt(gt('移除'))),
             ResourceDownloadTaskState.SUCCEEDED: (FluentIcon.DELETE, '移除'),
-            ResourceDownloadTaskState.FAILED: (FluentIcon.SYNC, '重试'),
+            ResourceDownloadTaskState.FAILED: (FluentIcon.SYNC, gt('重试')),
         }[task.state]
         self.action_button.setIcon(action_icon)
         self.action_button.setToolTip(gt(action_tooltip))
@@ -226,12 +226,12 @@ class DownloadQueueItemWidget(QWidget):
                 return f'{gt("失败")} · {message}'
             return gt('失败')
         return gt({
-            ResourceDownloadTaskState.WAITING: '等待中',
-            ResourceDownloadTaskState.EXTRACTING: '正在解压',
-            ResourceDownloadTaskState.APPLYING: '正在应用更新',
-            ResourceDownloadTaskState.CANCELLING: '正在取消',
-            ResourceDownloadTaskState.CANCELLED: '已取消',
-            ResourceDownloadTaskState.SUCCEEDED: '已完成',
+            ResourceDownloadTaskState.WAITING: gt('等待中'),
+            ResourceDownloadTaskState.EXTRACTING: gt('正在解压'),
+            ResourceDownloadTaskState.APPLYING: gt('正在应用更新'),
+            ResourceDownloadTaskState.CANCELLING: gt('正在取消'),
+            ResourceDownloadTaskState.CANCELLED: gt('已取消'),
+            ResourceDownloadTaskState.SUCCEEDED: gt('已完成'),
         }[self.task.state])
 
     def _on_action_clicked(self) -> None:

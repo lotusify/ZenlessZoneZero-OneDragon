@@ -1,3 +1,4 @@
+from one_dragon.utils.i18_utils import gt
 import time
 from collections.abc import Callable
 from threading import Event
@@ -38,7 +39,7 @@ class PipCaptureWorker(QThread):
             try:
                 frame = self._capture_fn()
             except Exception:
-                log.debug('画中画截图失败', exc_info=True)
+                log.debug(gt('画中画截图失败'), exc_info=True)
                 frame = None
 
             if frame is not None:

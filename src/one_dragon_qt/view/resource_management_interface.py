@@ -94,7 +94,7 @@ class OcrReloadRunner(QThread):
         try:
             self.ctx.init_ocr()
         except Exception:
-            log.error('后台重新加载 OCR 模型失败', exc_info=True)
+            log.error(gt('后台重新加载 OCR 模型失败'), exc_info=True)
 
 
 class ResourceManagementInterface(VerticalScrollInterface):
@@ -116,7 +116,7 @@ class ResourceManagementInterface(VerticalScrollInterface):
             content_widget=None,
             object_name='resource_management_interface',
             parent=parent,
-            nav_text_cn='资源管理', nav_icon=FluentIcon.SYNC
+            nav_text_cn=gt('资源管理'), nav_icon=FluentIcon.SYNC
         )
 
         self.fetch_total_runner = FetchTotalRunner(ctx.git_service.fetch_total_commit)
@@ -158,32 +158,32 @@ class ResourceManagementInterface(VerticalScrollInterface):
         )
         self.repository_url_opt = ComboBoxSettingCard(
             icon=FluentIcon.APPLICATION,
-            title='代码源',
-            content='自动模式优先使用上次成功源',
+            title=gt('代码源'),
+            content=gt('自动模式优先使用上次成功源'),
             options_list=self.ctx.repo_config.repository_options,
         )
         self.repository_url_opt.value_changed.connect(lambda: self.ctx.git_service.update_remote())
 
         self.git_branch_opt = ComboBoxSettingCard(
             icon=FluentIcon.GITHUB,
-            title='代码分支',
-            content='主分支用于稳定版本，测试分支用于提前体验新功能',
+            title=gt('代码分支'),
+            content=gt('主分支用于稳定版本，测试分支用于提前体验新功能'),
             options_list=self.ctx.repo_config.branch_options,
         )
         self.git_branch_opt.value_changed.connect(self._on_git_branch_changed)
 
         self.auto_update_code_opt = PasswordSwitchSettingCard(
-            icon=FluentIcon.SYNC, title='自动更新', content='使用exe启动时，自动检测并更新代码',
+            icon=FluentIcon.SYNC, title=gt('自动更新'), content=gt('使用exe启动时，自动检测并更新代码'),
             password_hash='69fec7ebc9c57ba044c55deb4e30aa1a6d6788f1da67b824ef96a590f526d20a',
             reverse_mode=True
         )
 
         self.force_update_opt = SwitchSettingCard(
-            icon=FluentIcon.SYNC, title='强制更新', content='不懂代码请开启，会将脚本更新到最新并将你的改动覆盖，不会使你的配置失效',
+            icon=FluentIcon.SYNC, title=gt('强制更新'), content=gt('不懂代码请开启，会将脚本更新到最新并将你的改动覆盖，不会使你的配置失效'),
         )
 
         self.custom_git_branch_lineedit = LineEdit()
-        self.custom_git_branch_lineedit.setPlaceholderText(gt('自定义分支'))
+        self.custom_git_branch_lineedit.setPlaceholderText(gt(gt('自定义分支')))
         self.custom_git_branch_lineedit.editingFinished.connect(self._on_custom_branch_edited)
         self.custom_git_branch_opt = PasswordSwitchSettingCard(
             icon=FluentIcon.EDIT,
@@ -251,11 +251,11 @@ class ResourceManagementInterface(VerticalScrollInterface):
 
     def _add_resource_content(self, content_widget: Column) -> None:
         """添加框架通用资源和项目资源。"""
-        self.download_settings_group = SettingCardGroup('下载设置')
+        self.download_settings_group = SettingCardGroup(gt('下载设置'))
         self.resource_source_opt = ComboBoxSettingCard(
             icon=FluentIcon.GLOBE,
-            title='下载源',
-            content='自动模式优先使用上次成功源，失败后继续尝试其他源',
+            title=gt('下载源'),
+            content=gt('自动模式优先使用上次成功源，失败后继续尝试其他源'),
             options_list=build_resource_source_options(self.ctx.env_config),
         )
         self.resource_source_opt.combo_box.setFixedWidth(160)
@@ -263,12 +263,12 @@ class ResourceManagementInterface(VerticalScrollInterface):
 
         self.proxy_group = ExpandSettingCardGroup(
             icon=FluentIcon.WIFI,
-            title='代理设置',
-            content='为代码和资源下载配置网络代理',
+            title=gt('代理设置'),
+            content=gt('为代码和资源下载配置网络代理'),
         )
         self.proxy_type_opt = ComboBoxSettingCard(
             icon=FluentIcon.GLOBE,
-            title='代理类型',
+            title=gt('代理类型'),
             options_enum=ProxyTypeEnum,
         )
         self.proxy_type_opt.value_changed.connect(
@@ -278,7 +278,7 @@ class ResourceManagementInterface(VerticalScrollInterface):
 
         self.proxy_url_input = TextSettingCard(
             icon=FluentIcon.WIFI,
-            title='代理地址',
+            title=gt('代理地址'),
             input_max_width=300,
         )
         self.proxy_url_input.line_edit.setFixedWidth(300)
@@ -289,8 +289,8 @@ class ResourceManagementInterface(VerticalScrollInterface):
 
         self.auto_fetch_proxy_opt = SwitchSettingCard(
             icon=FluentIcon.SYNC,
-            title='自动获取免费代理地址',
-            content='仅在使用 GitHub 代理时生效',
+            title=gt('自动获取免费代理地址'),
+            content=gt('仅在使用 GitHub 代理时生效'),
             on_text_cn='',
             off_text_cn='',
         )
@@ -308,15 +308,15 @@ class ResourceManagementInterface(VerticalScrollInterface):
 
         self.auto_download_opt = SwitchSettingCard(
             icon=FluentIcon.DOWNLOAD,
-            title='资源自动下载',
-            content='发现资源缺失或有新版本时，跳过确认并自动下载',
+            title=gt('资源自动下载'),
+            content=gt('发现资源缺失或有新版本时，跳过确认并自动下载'),
             on_text_cn='',
             off_text_cn='',
         )
         self.download_settings_group.addSettingCard(self.auto_download_opt)
         content_widget.add_widget(self.download_settings_group)
 
-        self.download_items_group = SettingCardGroup('更新与下载')
+        self.download_items_group = SettingCardGroup(gt('更新与下载'))
         self.download_items_group.addSettingCard(self.code_card)
         self.launcher_opt = LauncherDownloadCard(self.ctx)
         self.launcher_opt.use_download_queue(
@@ -326,7 +326,7 @@ class ResourceManagementInterface(VerticalScrollInterface):
         self.download_items_group.addSettingCard(self.launcher_opt)
 
         self.ocr_opt = self._create_model_card(
-            title='OCR识别',
+            title=gt('OCR识别'),
             options=get_ocr_opts(),
             current_getter=lambda: self.ctx.model_config.ocr,
             config_key='ocr',
@@ -505,7 +505,7 @@ class ResourceManagementInterface(VerticalScrollInterface):
         return ResourceDownloadSpec(
             resource_id=f'launcher_{launcher_type}',
             resource_type='launcher',
-            title='启动器',
+            title=gt('启动器'),
             current_version=current_version,
             target_version=target_version,
             downloader_factory=lambda selected=param: ZipDownloader(selected),

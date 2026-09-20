@@ -258,9 +258,9 @@ class InstallStepWidget(QWidget):
                 continue
 
             message = card.contentLabel.text()
-            if any(keyword in message for keyword in ["已安装", "已同步", "已配置"]):
+            if any(keyword in message for keyword in [gt("已安装"), gt("已同步"), gt("已配置")]):
                 continue
-            elif any(keyword in message for keyword in ["未安装", "未同步", "未配置", "需更新"]):
+            elif any(keyword in message for keyword in [gt("未安装"), gt("未同步"), gt("未配置"), gt("需更新")]):
                 all_completed = False
                 has_pending = True
             else:
@@ -319,8 +319,8 @@ class InstallStepWidget(QWidget):
             if ctx and hasattr(ctx, 'project_config'):
                 webbrowser.open(ctx.project_config.doc_link)
             else:
-                log.warning("未找到可用的 ctx，无法打开帮助文档")
-            log.info("步骤安装失败，已自动打开帮助文档")
+                log.warning(gt("未找到可用的 ctx，无法打开帮助文档"))
+            log.info(gt("步骤安装失败，已自动打开帮助文档"))
 
             self.step_completed.emit(False)
         else:
@@ -343,7 +343,7 @@ class InstallerInterface(VerticalScrollInterface):
     def __init__(self, ctx: OneDragonEnvContext, extra_install_cards: list | None = None, parent=None):
         VerticalScrollInterface.__init__(self, object_name='install_interface',
                                          parent=parent, content_widget=None,
-                                         nav_text_cn='一键安装', nav_icon=FluentIcon.DOWNLOAD)
+                                         nav_text_cn=gt('一键安装'), nav_icon=FluentIcon.DOWNLOAD)
         self.ctx: OneDragonEnvContext = ctx
         self.extra_install_cards: list | None = extra_install_cards
         self._progress_value = 0
@@ -499,9 +499,9 @@ class InstallerInterface(VerticalScrollInterface):
         main_layout.addWidget(title_label, stretch=1)
 
         # 步骤指示器
-        step_names = ["代码同步", "环境配置", "安装启动器"]
+        step_names = [gt("代码同步"), gt("环境配置"), gt("安装启动器")]
         if self.extra_install_cards:
-            step_names.append("扩展安装")
+            step_names.append(gt("扩展安装"))
         self.step_indicator = StepIndicator(step_names)
         self.step_indicator.step_clicked.connect(self.on_step_indicator_clicked)
         main_layout.addWidget(self.step_indicator, stretch=1)
@@ -510,15 +510,15 @@ class InstallerInterface(VerticalScrollInterface):
         # 创建安装步骤
         self.install_steps = [
             InstallStepWidget(
-            "从 GitHub 仓库同步最新项目代码，确保使用最新功能和修复。",
+            gt("从 GitHub 仓库同步最新项目代码，确保使用最新功能和修复。"),
             [self.code_opt]
             ),
             InstallStepWidget(
-            "配置 Python 运行环境和依赖管理工具，为项目运行做好准备。",
+            gt("配置 Python 运行环境和依赖管理工具，为项目运行做好准备。"),
             [self.uv_opt, self.python_opt, self.venv_opt]
             ),
             InstallStepWidget(
-            "下载项目启动器，用于启动和管理一条龙应用。",
+            gt("下载项目启动器，用于启动和管理一条龙应用。"),
             [self.launcher_opt]
             )
         ]
@@ -526,7 +526,7 @@ class InstallerInterface(VerticalScrollInterface):
         if self.extra_install_cards is not None:
             self.install_steps.append(
                 InstallStepWidget(
-                    "安装项目所需的扩展组件和特定功能模块，提供完整的功能体验。",
+                    gt("安装项目所需的扩展组件和特定功能模块，提供完整的功能体验。"),
                     self.extra_install_cards,
                     is_optional=True
                 )
@@ -649,7 +649,7 @@ class InstallerInterface(VerticalScrollInterface):
         else:
             # 安装失败时自动打开帮助文档
             webbrowser.open(self.ctx.project_config.doc_link)
-            log.info("安装失败，已自动打开帮助文档")
+            log.info(gt("安装失败，已自动打开帮助文档"))
             # 更新进度标签显示文档已打开的信息
             self.progress_label.setText(gt('安装失败！已自动打开排障文档'))
             self.progress_label.setStyleSheet("color: #d13438;")

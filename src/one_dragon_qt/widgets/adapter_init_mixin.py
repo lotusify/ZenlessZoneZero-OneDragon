@@ -1,3 +1,4 @@
+from one_dragon.utils.i18_utils import gt
 from typing import Any
 
 from PySide6.QtCore import QTimer
@@ -34,7 +35,7 @@ class AdapterInitMixin:
                 value = self._get_adapter_value(adapter)
                 self._schedule_value_apply(value, current_generation)
             except Exception:
-                log.error("加载配置项失败", exc_info=True)
+                log.error(gt("加载配置项失败"), exc_info=True)
 
         QTimer.singleShot(0, load_value)
 
@@ -61,7 +62,7 @@ class AdapterInitMixin:
             return
 
         raise NotImplementedError(
-            "使用 AdapterInitMixin 的类必须实现 setValue 或 set_value 方法，或重写 _set_value_from_adapter 方法。"
+            gt("使用 AdapterInitMixin 的类必须实现 setValue 或 set_value 方法，或重写 _set_value_from_adapter 方法。")
         )
 
     def _on_adapter_value_applied(self, value: Any) -> None:

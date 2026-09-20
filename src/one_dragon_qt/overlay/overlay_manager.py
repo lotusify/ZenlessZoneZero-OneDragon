@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from one_dragon.utils.i18_utils import gt
 import logging
 import time
 from collections.abc import Sequence
@@ -202,7 +203,7 @@ class OverlayManager(QObject):
         try:
             return self._overlay_window.capture_overlay_rgba()
         except Exception:
-            log.error("捕获 Overlay 图像失败", exc_info=True)
+            log.error(gt("捕获 Overlay 图像失败"), exc_info=True)
             return None
 
     def _apply_timer_intervals(self) -> None:
@@ -402,7 +403,7 @@ class OverlayManager(QObject):
                     geometry = self._clamp_geometry_dict_to_game_rect(geometry, qt_rect)
             self.config.set_panel_geometry(panel_name, geometry)
         except Exception:
-            log.error("保存 Overlay 面板位置失败", exc_info=True)
+            log.error("gt(gt(保存 Overlay ))面板位置失败", exc_info=True)
 
     def _on_panel_appearance_changed(
         self, panel_name: str, font_size: int, panel_opacity: int
@@ -410,27 +411,27 @@ class OverlayManager(QObject):
         try:
             self.config.set_panel_appearance(panel_name, font_size=font_size, opacity=panel_opacity)
         except Exception:
-            log.error(f"保存 Overlay {panel_name} 样式失败", exc_info=True)
+            log.error(f"保存 Overlay {panel_name}gt( 样式失败)", exc_info=True)
 
     def _on_panel_edit_mode_changed(self, enabled: bool) -> None:
         try:
             self.config.panel_edit_mode = bool(enabled)
             self._safe_follow_window()
         except Exception:
-            log.error("保存 Overlay 编辑模式失败", exc_info=True)
+            log.error(gt("保存 Overlay 编辑模式失败"), exc_info=True)
 
     def _on_panel_free_mode_changed(self, panel_name: str, enabled: bool) -> None:
         try:
             self.config.set_panel_free_mode(panel_name, bool(enabled))
             self._safe_follow_window()
         except Exception:
-            log.error(f"保存 Overlay {panel_name} 窗口模式失败", exc_info=True)
+            log.error(f"保存 Overlay {panel_name}gt( 窗口模式失败)", exc_info=True)
 
     def _safe_follow_window(self) -> None:
         try:
             self._follow_window()
         except Exception:
-            log.error("更新 Overlay 窗口失败", exc_info=True)
+            log.error(gt("更新 Overlay 窗口失败"), exc_info=True)
 
     def _follow_window(self) -> None:
         if not self.config.enabled:
@@ -439,7 +440,7 @@ class OverlayManager(QObject):
         if not self._supported:
             self._hide_overlay()
             if not self._warned_unsupported:
-                log.warning("Overlay 已禁用：系统版本低于 Windows 10 2004（build 19041）")
+                log.warning(gt("Overlay 已禁用：系统版本低于 Windows 10 2004（build 19041）"))
                 self._warned_unsupported = True
             return
 
@@ -447,7 +448,7 @@ class OverlayManager(QObject):
         if game_rect is None:
             self._hide_overlay()
             if not self._warned_waiting_game_window:
-                log.info("Overlay 已启用，等待游戏窗口可用后显示")
+                log.info(gt("Overlay 已启用，等待游戏窗口可用后显示"))
                 self._warned_waiting_game_window = True
             return
         self._warned_waiting_game_window = False
@@ -602,7 +603,7 @@ class OverlayManager(QObject):
         try:
             self._poll_input_mode()
         except Exception:
-            log.error("更新 Overlay 交互模式失败", exc_info=True)
+            log.error(gt("更新 Overlay 交互模式失败"), exc_info=True)
 
     def _poll_input_mode(self) -> None:
         toggle_combo_now = win32_utils.is_hotkey_combo_pressed(self.config.toggle_hotkey)
@@ -626,7 +627,7 @@ class OverlayManager(QObject):
         try:
             self._refresh_state_panel()
         except Exception:
-            log.error("刷新 Overlay 状态面板失败", exc_info=True)
+            log.error(gt("刷新 Overlay 状态面板失败"), exc_info=True)
         finally:
             self._emit_debug_refresh_perf(start)
 
@@ -808,7 +809,7 @@ class OverlayManager(QObject):
             distance = f"{auto_ctx.last_check_distance:.1f}m"
 
         dodge_text = self._latest_dodge_state_text()
-        chain_text = "READY" if self._is_state_recent("连携技-准备", 1.2) else "-"
+        chain_text = "READY" if self._is_state_recent(gt("连携技-准备"), 1.2) else "-"
         quick_text = self._latest_quick_assist_text(team_info)
 
         items.extend(
@@ -825,7 +826,7 @@ class OverlayManager(QObject):
         return items
 
     def _latest_dodge_state_text(self) -> str:
-        candidates = ["闪避识别-黄光", "闪避识别-红光", "闪避识别-声音"]
+        candidates = [gt("闪避识别-黄光"), gt("闪避识别-红光"), gt("闪避识别-声音")]
         latest_name = "-"
         latest_time = 0.0
         now = time.time()
@@ -851,7 +852,7 @@ class OverlayManager(QObject):
         for agent_info in team_info.agent_list:
             if agent_info.agent is None:
                 continue
-            state_name = f"快速支援-{agent_info.agent.agent_name}"
+            state_name = f"gt(快速支援-){agent_info.agent.agent_name}"
             recorder = self.ctx.auto_battle_context.state_record_service.get_state_recorder(state_name)
             if recorder is None:
                 continue

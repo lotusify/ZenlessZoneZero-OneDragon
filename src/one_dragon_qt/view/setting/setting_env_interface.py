@@ -33,7 +33,7 @@ class SettingEnvInterface(VerticalScrollInterface):
             self,
             object_name='setting_env_interface',
             content_widget=None, parent=parent,
-            nav_text_cn='脚本环境'
+            nav_text_cn=gt('脚本环境')
         )
 
     def get_content_widget(self) -> QWidget:
@@ -43,8 +43,8 @@ class SettingEnvInterface(VerticalScrollInterface):
         content_layout.setAlignment(Qt.AlignmentFlag.AlignTop)
 
         self.help_opt = HelpCard(
-            title='设置说明',
-            content='不清楚用途时建议保持默认，下载失败或无法截图时再按说明调整',
+            title=gt('设置说明'),
+            content=gt('不清楚用途时建议保持默认，下载失败或无法截图时再按说明调整'),
         )
         content_layout.addWidget(self.help_opt)
         content_layout.addWidget(self._init_basic_group())
@@ -58,29 +58,29 @@ class SettingEnvInterface(VerticalScrollInterface):
         basic_group = SettingCardGroup(gt('基础'))
 
         self.screenshot_method_opt = ComboBoxSettingCard(
-            icon=FluentIcon.CAMERA, title='截图方法',
+            icon=FluentIcon.CAMERA, title=gt('截图方法'),
             options_enum=ScreenshotMethodEnum
         )
         self.screenshot_method_opt.value_changed.connect(lambda: self.ctx.init_controller())
         basic_group.addSettingCard(self.screenshot_method_opt)
 
         self.debug_opt = SwitchSettingCard(
-            icon=FluentIcon.SEARCH, title='调试模式', content='正常无需开启'
+            icon=FluentIcon.SEARCH, title=gt('调试模式'), content=gt('正常无需开启')
         )
         self.debug_opt.value_changed.connect(lambda: self.ctx.init_async())
         basic_group.addSettingCard(self.debug_opt)
 
         self.developer_mode_opt = SwitchSettingCard(
             icon=FluentIcon.DEVELOPER_TOOLS,
-            title='开发者模式',
-            content='关闭后隐藏开发工具和实验功能，已有配置不会改变',
+            title=gt('开发者模式'),
+            content=gt('关闭后隐藏开发工具和实验功能，已有配置不会改变'),
         )
         self.developer_mode_opt.value_changed.connect(self._on_developer_mode_changed)
         basic_group.addSettingCard(self.developer_mode_opt)
 
         self.copy_screenshot_opt = SwitchSettingCard(
-            icon=FluentIcon.CAMERA, title='复制截图到剪贴板',
-            content='按下截图按键时，自动将截图复制到剪贴板'
+            icon=FluentIcon.CAMERA, title=gt('复制截图到剪贴板'),
+            content=gt('按下截图按键时，自动将截图复制到剪贴板')
         )
         basic_group.addSettingCard(self.copy_screenshot_opt)
 
@@ -91,7 +91,7 @@ class SettingEnvInterface(VerticalScrollInterface):
 
         self.pip_source_opt = ComboBoxSettingCard(
             icon=FluentIcon.GLOBE,
-            title='Pip源',
+            title=gt('Pip源'),
             options_list=self.ctx.repo_config.get_source_options('pip_source'),
         )
         self.pip_choose_best_btn = PushButton(gt('自动测速选择'), self)
@@ -106,26 +106,26 @@ class SettingEnvInterface(VerticalScrollInterface):
         web_group = SettingCardGroup(gt('网络相关'))
 
         self.proxy_type_opt = ComboBoxSettingCard(
-            icon=FluentIcon.GLOBE, title='网络代理', content='免费代理仅能加速工具和模型下载，无法加速代码同步',
+            icon=FluentIcon.GLOBE, title=gt('网络代理'), content=gt('免费代理仅能加速工具和模型下载，无法加速代码同步'),
             options_enum=ProxyTypeEnum
         )
         self.proxy_type_opt.value_changed.connect(self._on_proxy_type_changed)
         web_group.addSettingCard(self.proxy_type_opt)
 
         self.personal_proxy_input = TextSettingCard(
-            icon=FluentIcon.WIFI, title='个人代理',
+            icon=FluentIcon.WIFI, title=gt('个人代理'),
             input_placeholder='http://127.0.0.1:7890'
         )
         self.personal_proxy_input.value_changed.connect(lambda: self._on_proxy_changed())
         web_group.addSettingCard(self.personal_proxy_input)
 
         self.gh_proxy_url_opt = TextSettingCard(
-            icon=FluentIcon.GLOBE, title='免费代理'
+            icon=FluentIcon.GLOBE, title=gt('免费代理')
         )
         web_group.addSettingCard(self.gh_proxy_url_opt)
 
         self.auto_fetch_gh_proxy_url_opt = SwitchSettingCard(
-            icon=FluentIcon.SYNC, title='自动获取免费代理地址', content='获取失败时 可前往 https://ghproxy.link/ 查看自行更新'
+            icon=FluentIcon.SYNC, title=gt('自动获取免费代理地址'), content=gt('获取失败时 可前往 https://ghproxy.link/ 查看自行更新')
         )
         self.fetch_gh_proxy_url_btn = PushButton(gt('获取'), self)
         self.fetch_gh_proxy_url_btn.clicked.connect(self.on_fetch_gh_proxy_url_clicked)
@@ -144,22 +144,22 @@ class SettingEnvInterface(VerticalScrollInterface):
         key_group = SettingCardGroup(gt('脚本按键'))
 
         self.key_start_running_input = KeySettingCard(
-            icon=FluentIcon.PLAY, title='开始运行', content='开始、暂停、恢复某个应用',
+            icon=FluentIcon.PLAY, title=gt('开始运行'), content=gt('开始、暂停、恢复某个应用'),
         )
         key_group.addSettingCard(self.key_start_running_input)
 
         self.key_stop_running_input = KeySettingCard(
-            icon=FluentIcon.CLOSE, title='停止运行', content='停止正在运行的应用，不能恢复'
+            icon=FluentIcon.CLOSE, title=gt('停止运行'), content=gt('停止正在运行的应用，不能恢复')
         )
         key_group.addSettingCard(self.key_stop_running_input)
 
         self.key_screenshot_input = KeySettingCard(
-            icon=FluentIcon.CAMERA, title='游戏截图', content='用于开发、提交bug。会自动对UID打码，保存在 .debug/images/ 文件夹中'
+            icon=FluentIcon.CAMERA, title=gt('游戏截图'), content=gt('用于开发、提交bug。会自动对UID打码，保存在 .debug/images/ 文件夹中')
         )
         key_group.addSettingCard(self.key_screenshot_input)
 
         self.key_debug_input = KeySettingCard(
-            icon=FluentIcon.MOVE, title='调试按钮', content='用于开发，部分应用开始调试'
+            icon=FluentIcon.MOVE, title=gt('调试按钮'), content=gt('用于开发，部分应用开始调试')
         )
         key_group.addSettingCard(self.key_debug_input)
 
@@ -233,16 +233,16 @@ class SettingEnvInterface(VerticalScrollInterface):
         # 异步测速pip源，toast显示日志和结果
         self._pip_speed_thread = PipSourceSpeedTestThread(self.ctx)
         self._pip_speed_thread.log_signal.connect(lambda label, ms: self._show_info_bar(
-            title=f"测速：{label}",
-            content=f"耗时 {ms}ms",
+            title=f"gt(测速：){label}",
+            content=f"gt(耗时 ){ms}ms",
             duration=2000
         ))
         def pip_result(label, ms, value):
             self.ctx.env_config.pip_source = value
             self.pip_source_opt.setValue(value)
             self._show_info_bar(
-                title="测速结果",
-                content=f"已选择最快的Pip源：{label}（{ms}ms）",
+                title=gt("测速结果"),
+                content=f"gt(已选择最快的Pip源：){label}（{ms}ms）",
                 duration=3000
             )
         self._pip_speed_thread.result_signal.connect(pip_result)

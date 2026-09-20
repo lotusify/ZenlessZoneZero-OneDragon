@@ -58,7 +58,7 @@ class _ResourceUpdateCheckRunner(QThread):
             need_update = self.resource_check.check_update()
         except Exception:
             log.error(
-                f'资源更新检查失败: {self.resource_check.check_id}',
+                f'gt(资源更新检查失败: ){self.resource_check.check_id}',
                 exc_info=True,
             )
         self.checked.emit(self.resource_check.check_id, need_update)
@@ -112,7 +112,7 @@ class ResourceUpdateCoordinator(QObject):
     def _register_check(self, resource_check: _ResourceCheck) -> None:
         """注册框架内部资源检查项。"""
         if resource_check.check_id in self._resource_checks:
-            raise ValueError(f'资源更新检查重复注册: {resource_check.check_id}')
+            raise ValueError(f'gt(资源更新检查重复注册: ){resource_check.check_id}')
         self._resource_checks[resource_check.check_id] = resource_check
         self._pending_updates[resource_check.check_id] = False
         self._checks_complete[resource_check.check_id] = False
@@ -207,7 +207,7 @@ class ResourceUpdateCoordinator(QObject):
                 self.ctx,
                 self.queue,
                 specs,
-                title='发现可下载资源',
+                title=gt('发现可下载资源'),
                 show_remember=included_ocr_request is not None,
                 parent=self.window,
             )
@@ -249,7 +249,7 @@ class ResourceUpdateCoordinator(QObject):
                     current_version='',
                     target_version=target_version,
                     downloader_factory=lambda: self.ctx.ocr,
-                    note='首次使用需要下载',
+                    note=gt('首次使用需要下载'),
                 )
             )
 
@@ -260,7 +260,7 @@ class ResourceUpdateCoordinator(QObject):
                 resource_specs = resource_check.build_specs()
             except Exception:
                 log.error(
-                    f'构造资源下载项失败: {check_id}',
+                    f'gt(构造资源下载项失败: ){check_id}',
                     exc_info=True,
                 )
                 resource_specs = []
@@ -392,10 +392,10 @@ class ResourceUpdateCoordinator(QObject):
             ResourceDownloadSpec(
                 resource_id=f'launcher_{launcher_type}',
                 resource_type='launcher',
-                title='启动器',
+                title=gt('启动器'),
                 current_version=current,
                 target_version=target,
-                note='启动器更新',
+                note=gt('启动器更新'),
                 downloader_factory=lambda: ZipDownloader(launcher_param),
                 after_download=lambda success: self._after_launcher_download(
                     launcher_type,
@@ -406,7 +406,7 @@ class ResourceUpdateCoordinator(QObject):
         ]
 
     def _build_model_specs(self) -> list[ResourceDownloadSpec]:
-        """按项目模型配置声明构造全部缺失或更新任务。"""
+        """按项目gt(模型)配置声明构造全部缺失或更新任务。"""
         specs: list[ResourceDownloadSpec] = []
         for update in self.ctx.model_config.get_model_update_params():
             definition = update.definition
@@ -422,9 +422,9 @@ class ResourceUpdateCoordinator(QObject):
                     ),
                     target_version=update.target_model,
                     note=(
-                        '模型文件缺失'
+                        gt('模型文件缺失')
                         if update.current_files_missing
-                        else '推荐版本更新'
+                        else gt('推荐版本更新')
                     ),
                     downloader_factory=(
                         lambda selected=update.download_param: ZipDownloader(

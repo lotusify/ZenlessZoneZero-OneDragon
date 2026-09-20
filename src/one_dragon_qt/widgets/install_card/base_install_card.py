@@ -65,8 +65,8 @@ class BaseInstallCard(MultiPushSettingCard):
                  title_cn: str,
                  install_method: Callable[[Callable[[float, str], None]], Tuple[bool, str]],
                  install_btn_icon: FluentIcon = FluentIcon.DOWN,
-                 install_btn_text_cn: str = '默认安装',
-                 content_cn: str = '未安装',
+                 install_btn_text_cn: str = gt('默认安装'),
+                 content_cn: str = gt('未安装'),
                  left_widgets: List[QWidget] = None,
                  parent=None
                  ):
@@ -104,7 +104,7 @@ class BaseInstallCard(MultiPushSettingCard):
         :return:
         """
         if self.install_runner.isRunning():
-            log.warning('我知道你很急 但你先别急 正在运行了')
+            log.warning(gt(gt('我知道你很急 但你先别急 正在运行了')))
             return
         self.install_btn.setDisabled(True)
         self.install_runner.start()

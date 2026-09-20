@@ -1,3 +1,4 @@
+from one_dragon.utils.i18_utils import gt
 import cv2
 import numpy as np
 
@@ -26,7 +27,7 @@ class ImageAnalysisLogic:
         self.context: CvPipelineContext = None
         self.active_pipeline_name: str = None  # 当前激活的流水线名称
 
-        self.view_options: list[str] = ['原始图像', '遮罩', '最终结果']
+        self.view_options: list[str] = [gt(gt('原始图像')), gt(gt('遮罩')), gt(gt('最终结果'))]
         self.current_view_index: int = 0
 
         # UI层仍然需要知道有哪些可用的步骤，以便在界面上显示
@@ -72,7 +73,7 @@ class ImageAnalysisLogic:
         执行流水线
         """
         if self.context is None or self.context.source_image is None:
-            return None, ["请先加载图片"]
+            return None, [gt("请先加载图片")]
 
         # 直接调用 pipeline 的 execute，并传入 service
         self.context = self.pipeline.execute(

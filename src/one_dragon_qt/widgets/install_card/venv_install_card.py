@@ -13,7 +13,7 @@ class VenvInstallCard(BaseInstallCard):
         BaseInstallCard.__init__(
             self,
             ctx=ctx,
-            title_cn='运行环境',
+            title_cn=gt('运行环境'),
             install_method=ctx.python_service.uv_sync
         )
 

@@ -76,7 +76,7 @@ def _parse_rect(text: str) -> Rect:
     stripped = text.strip().strip('()[]')
     parts = [p.strip() for p in stripped.split(',')]
     if len(parts) != 4:
-        raise ValueError(f'需要 4 个坐标值，实际: {len(parts)} 个')
+        raise ValueError(f'gt(需要 4gt( 个)坐标值，实际: ){len(parts)} 个')
     return Rect(*(int(p) for p in parts))
 
 
@@ -88,26 +88,26 @@ def _parse_color_range(text: str) -> list[list[int]] | None:
     if (isinstance(val, list) and len(val) == 2
             and all(isinstance(v, list) and len(v) == 3 for v in val)):
         return val
-    raise ValueError(f'需要 [[r,g,b],[r,g,b]]，实际: {val}')
+    raise ValueError(f'gt(需要 [[r,g,b],[r,g,b]]，实际: ){val}')
 
 
 class DevtoolsScreenManageInterface(VerticalScrollInterface, HistoryMixin):
 
     AREA_COLUMNS: list[ColumnMeta] = [
-        ColumnMeta('操作', width=40),
-        ColumnMeta('标识', width=40),
-        ColumnMeta('区域名称', 'area_name', lambda x: x),
-        ColumnMeta('位置', 'pc_rect', _parse_rect, 200),
-        ColumnMeta('OCR文本', 'text', lambda x: x),
-        ColumnMeta('OCR阈值', 'lcs_percent', lambda x: float(x) if x else 0.5, 70),
-        ColumnMeta('模板目录', 'template_sub_dir', lambda x: x),
-        ColumnMeta('模板ID', 'template_id', lambda x: x),
-        ColumnMeta('模板阈值', 'template_match_threshold', lambda x: float(x) if x else 0.7, 70),
-        ColumnMeta('颜色范围', 'color_range', _parse_color_range,
+        ColumnMeta(gt('操作'), width=40),
+        ColumnMeta(gt('标识'), width=40),
+        ColumnMeta(gt('区域名称'), 'area_name', lambda x: x),
+        ColumnMeta(gt(gt(gt(gt('位置')))), 'pc_rect', _parse_rect, 200),
+        ColumnMeta(gt('OCR文本'), 'text', lambda x: x),
+        ColumnMeta(gt('OCR阈值'), 'lcs_percent', lambda x: float(x) if x else 0.5, 70),
+        ColumnMeta(gt('模板目录'), 'template_sub_dir', lambda x: x),
+        ColumnMeta(gt('模板ID'), 'template_id', lambda x: x),
+        ColumnMeta(gt('模板阈值'), 'template_match_threshold', lambda x: float(x) if x else 0.7, 70),
+        ColumnMeta(gt('颜色范围'), 'color_range', _parse_color_range,
                    formatter=lambda v: '' if v is None else str(v)),
-        ColumnMeta('前往画面', 'goto_list', lambda x: [i.strip() for i in x.split(',') if i.strip()],
+        ColumnMeta(gt('前往画面'), 'goto_list', lambda x: [i.strip() for i in x.split(',') if i.strip()],
                    formatter=lambda v: ','.join(v) if v else ''),
-        ColumnMeta('手柄键', 'gamepad_key', lambda x: x.strip() or None, 120,
+        ColumnMeta(gt('手柄键'), 'gamepad_key', lambda x: x.strip() or None, 120,
                    formatter=lambda v: '' if v is None else str(v)),
     ]
 
@@ -119,7 +119,7 @@ class DevtoolsScreenManageInterface(VerticalScrollInterface, HistoryMixin):
             content_widget=None,
             object_name='devtools_screen_manage_interface',
             parent=parent,
-            nav_text_cn='画面管理'
+            nav_text_cn=gt('画面管理')
         )
         self._init_history()  # 初始化历史记录功能
 
@@ -164,9 +164,9 @@ class DevtoolsScreenManageInterface(VerticalScrollInterface, HistoryMixin):
 
         self.merge_opt = PushSettingCard(
             icon=FluentIcon.SETTING,
-            title='更新合并配置文件',
-            content='手动更改yml文件后 需要触发更新生效',
-            text='更新',
+            title=gt('更新合并配置文件'),
+            content=gt('手动更改yml文件后 需要触发更新生效'),
+            text=gt('更新'),
         )
         self.merge_opt.clicked.connect(self._on_merge_clicked)
         control_layout.addWidget(self.merge_opt)
@@ -368,8 +368,8 @@ class DevtoolsScreenManageInterface(VerticalScrollInterface, HistoryMixin):
         self.y_pos_label.setReadOnly(True)
         self.y_pos_label.setPlaceholderText(gt('纵'))
 
-        self.image_click_pos_opt = MultiPushSettingCard(icon=FluentIcon.MOVE, title='鼠标点击坐标',
-                                                        content='图片左上角为(0, 0)',
+        self.image_click_pos_opt = MultiPushSettingCard(icon=FluentIcon.MOVE, title=gt('鼠标点击坐标'),
+                                                        content=gt('图片左上角为(0, 0)'),
                                                         btn_list=[self.x_pos_label, self.y_pos_label])
         layout.addWidget(self.image_click_pos_opt)
 
@@ -544,7 +544,7 @@ class DevtoolsScreenManageInterface(VerticalScrollInterface, HistoryMixin):
         )
         if file_path is not None and file_path.endswith('.png'):
             fix_file_path = os.path.normpath(file_path)
-            log.info('选择路径 %s', fix_file_path)
+            log.info(gt(gt('选择路径 %s')), fix_file_path)
             self.last_screen_dir = os.path.dirname(fix_file_path)
             self._on_image_chosen(fix_file_path)
 
@@ -713,7 +713,7 @@ class DevtoolsScreenManageInterface(VerticalScrollInterface, HistoryMixin):
                 self._image_update.signal.emit()
         except Exception as e:
             # 如果解析失败，不进行修改
-            log.error('解析失败', exc_info=True)
+            log.error(gt(gt('解析失败')), exc_info=True)
             self.show_info_bar(
                 '解析失败',
                 f'{col_meta.display_name}: {e}',

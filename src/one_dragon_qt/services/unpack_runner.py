@@ -1,3 +1,4 @@
+from one_dragon.utils.i18_utils import gt
 import contextlib
 import hashlib
 import json
@@ -63,13 +64,13 @@ class UnpackResourceRunner(QThread):
         try:
             manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
         except Exception as e:
-            self.log_message.emit(f"读取安装清单失败: {e}")
+            self.log_message.emit(f"gt(读取安装清单失败: ){e}")
             return False
 
         # 清单格式: {"version": "...", "generated_at": "...", "files": [...]}
         # 其中 files 为文件条目列表，每项包含 path / size / sha256
         if not isinstance(manifest, dict) or not isinstance(manifest.get('files'), list):
-            self.log_message.emit("安装清单格式不正确")
+            self.log_message.emit(gt("安装清单格式不正确"))
             return False
 
         files: list[dict] = manifest['files']
@@ -93,7 +94,7 @@ class UnpackResourceRunner(QThread):
         except Exception:
             free_space = None
         if free_space is not None and free_space < total_size * 1.2:  # 留20%余量
-            msg = f"磁盘空间不足: 需要 {total_size/(1024**3):.2f}GB, 可用 {free_space/(1024**3):.2f}GB"
+            msg = f"gt(磁盘空间不足: 需要 ){total_size/(1024**3):.2f}gt(GB, 可用 ){free_space/(1024**3):.2f}GB"
             self.log_message.emit(msg)
             return False
 
@@ -131,7 +132,7 @@ class UnpackResourceRunner(QThread):
             try:
                 actual_size, actual_sha = self._copy_and_hash(src_path, dst_path)
             except Exception as e:
-                self.log_message.emit(f"复制文件失败，跳过: {rel} err={e}")
+                self.log_message.emit(f"gt(复制文件失败，跳过: ){rel} err={e}")
                 with contextlib.suppress(Exception):
                     dst_path.unlink(missing_ok=True)
                 continue
@@ -139,7 +140,7 @@ class UnpackResourceRunner(QThread):
             expected_size = item.get('size')
             if isinstance(expected_size, int) and expected_size >= 0:
                 if actual_size != expected_size:
-                    self.log_message.emit(f"文件大小校验失败，跳过: {rel}")
+                    self.log_message.emit(f"gt(文件大小校验失败，跳过: ){rel}")
                     with contextlib.suppress(Exception):
                         dst_path.unlink(missing_ok=True)
                     continue
@@ -147,7 +148,7 @@ class UnpackResourceRunner(QThread):
             expected_sha = item.get('sha256')
             if isinstance(expected_sha, str) and expected_sha:
                 if actual_sha != expected_sha.upper():
-                    self.log_message.emit(f"文件哈希校验失败，跳过: {rel}")
+                    self.log_message.emit(f"gt(文件哈希校验失败，跳过: ){rel}")
                     with contextlib.suppress(Exception):
                         dst_path.unlink(missing_ok=True)
                     continue
@@ -204,7 +205,7 @@ class UnpackResourceRunner(QThread):
                 with contextlib.suppress(Exception):
                     manifest_src.unlink(missing_ok=True)
             except Exception as e:
-                self.log_message.emit(f"搬运清单文件失败: {e}")
+                self.log_message.emit(f"gt(搬运清单文件失败: ){e}")
 
         return True
 
@@ -223,14 +224,14 @@ class UnpackResourceRunner(QThread):
             self._finish(True)
             return
 
-        self.log_message.emit("正在读取安装清单...")
+        self.log_message.emit(gt("正在读取安装清单..."))
 
         # 逐文件复制+校验，成功后删除源文件；异常视为失败
         try:
             ok = self._copy_by_manifest_then_cleanup(src_root, dst_root)
             self._finish(ok)
         except Exception as e:
-            self.log_message.emit(f"解包资源失败: {e}")
+            self.log_message.emit(f"gt(解包资源失败: ){e}")
             self._finish(False)
 
     def _finish(self, success: bool) -> None:

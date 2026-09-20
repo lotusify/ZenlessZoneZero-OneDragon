@@ -45,7 +45,7 @@ class ResourceUpdateDialog(MessageBoxBase):
         ctx: OneDragonEnvContext,
         queue: DownloadQueueService,
         specs: list[ResourceDownloadSpec],
-        title: str = '可用资源更新',
+        title: str = gt('可用资源更新'),
         show_remember: bool = False,
         parent: QWidget | None = None,
     ) -> None:
@@ -74,7 +74,7 @@ class ResourceUpdateDialog(MessageBoxBase):
             check.setChecked(not already_queued)
             check.setEnabled(not already_queued)
             check.stateChanged.connect(self._update_confirm_enabled)
-            version = f'{spec.current_version or "未安装"} → {spec.target_version}'
+            version = f'{spec.current_version or gt("未安装")} → {spec.target_version}'
             reason = (
                 gt('已在队列')
                 if already_queued

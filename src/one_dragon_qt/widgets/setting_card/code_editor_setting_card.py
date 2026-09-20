@@ -36,12 +36,12 @@ class TemplateVariables:
     """模板变量配置类"""
 
     VARIABLES = [
-        {"key": "$title", "name": "标题变量", "icon": FluentIcon.TAG},
-        {"key": "$content", "name": "内容变量", "icon": FluentIcon.DOCUMENT},
-        {"key": "$image", "name": "图片变量", "icon": FluentIcon.PHOTO},
-        {"key": "$timestamp", "name": "时间戳 (2024-12-19 15:30:45)", "icon": FluentIcon.CALENDAR},
-        {"key": "$iso_timestamp", "name": "ISO时间戳 (2024-12-19T15:30:45)", "icon": FluentIcon.CALENDAR},
-        {"key": "$unix_timestamp", "name": "Unix时间戳 (1703004645)", "icon": FluentIcon.CALENDAR},
+        {"key": "$title", "name": gt("标题变量"), "icon": FluentIcon.TAG},
+        {"key": "$content", "name": gt("内容变量"), "icon": FluentIcon.DOCUMENT},
+        {"key": "$image", "name": gt("图片变量"), "icon": FluentIcon.PHOTO},
+        {"key": "$timestamp", "name": gt("时间戳 (2024-12-19 15:30:45)"), "icon": FluentIcon.CALENDAR},
+        {"key": "$iso_timestamp", "name": gt("ISO时间戳 (2024-12-19T15:30:45)"), "icon": FluentIcon.CALENDAR},
+        {"key": "$unix_timestamp", "name": gt("Unix时间戳 (1703004645)"), "icon": FluentIcon.CALENDAR},
     ]
 
     @classmethod
@@ -316,7 +316,7 @@ class JsonEditorMixin:
             # 如果不是有效的 JSON，不做处理
             pass
         except Exception:
-            log.error('格式化 JSON 失败', exc_info=True)
+            log.error(gt('格式化 JSON 失败'), exc_info=True)
 
     def _compact_json(self, text: str) -> str:
         """将JSON内容紧凑化（去除空格和换行）"""
@@ -329,7 +329,7 @@ class JsonEditorMixin:
             # 如果不是有效的 JSON，返回原文
             return text
         except Exception:
-            log.error('紧凑化 JSON 失败', exc_info=True)
+            log.error(gt('紧凑化 JSON 失败'), exc_info=True)
             return text
 
     def _is_compact_json(self, text: str) -> bool:
@@ -385,7 +385,7 @@ class JsonEditorMixin:
 class BaseCodeEditorDialog(MessageBoxBase):
     """代码编辑器弹窗基类，提供编辑器、标题和按钮的基础布局。"""
 
-    def __init__(self, parent=None, title: str = "代码编辑器",
+    def __init__(self, parent=None, title: str = gt(gt("代码编辑器")),
                  placeholder: str = "", initial_code: str = ""):
         super().__init__(parent)
 
@@ -423,7 +423,7 @@ class JsonCodeEditorDialog(BaseCodeEditorDialog, JsonEditorMixin):
     def __init__(self, parent=None, title: str = "代码编辑器", adapter=None):
         self.adapter = adapter
         super().__init__(parent=parent, title=title,
-                         placeholder=gt("请输入 JSON 格式的请求体"))
+                         placeholder=gt(gt("请输入 JSON 格式的请求体")))
 
         # 初始化编辑器内容
         if self.adapter is not None:
@@ -478,18 +478,18 @@ class JsonCodeEditorDialog(BaseCodeEditorDialog, JsonEditorMixin):
 class PythonCodeEditorDialog(BaseCodeEditorDialog):
     """Python 代码编辑器弹窗"""
 
-    def __init__(self, parent=None, title: str = "Python 脚本编辑器",
+    def __init__(self, parent=None, title: str = gt("Python 脚本编辑器"),
                  initial_code: str = "", script_path: str = ""):
         self._script_path = script_path
         super().__init__(parent=parent, title=title,
-                         placeholder="# 输入 Python 脚本",
+                         placeholder=gt("# 输入 Python 脚本"),
                          initial_code=initial_code)
         self.yesButton.setText(gt("保存"))
         self.cancelButton.setText(gt("取消"))
 
         if script_path:
             from qfluentwidgets import PushButton
-            self.external_edit_btn = PushButton(FluentIcon.EDIT, '外部编辑')
+            self.external_edit_btn = PushButton(FluentIcon.EDIT, gt('外部编辑'))
             self.external_edit_btn.clicked.connect(self._on_external_edit)
             # 插入到最左侧，再加一个弹性空间把它推到左边
             self.buttonLayout.insertWidget(0, self.external_edit_btn)
@@ -508,7 +508,7 @@ class PythonCodeEditorDialog(BaseCodeEditorDialog):
         if QDesktopServices.openUrl(QUrl.fromLocalFile(self._script_path)):
             self.reject()
         else:
-            log.error('打开外部编辑器失败: %s', self._script_path)
+            log.error(gt('打开外部编辑器失败: %s'), self._script_path)
 
     def get_code(self) -> str:
         return self.editor.toPlainText()
@@ -768,7 +768,7 @@ class CodeEditorSettingCard(SettingCardBase, AdapterInitMixin, JsonEditorMixin):
         # 传递适配器给对话框，让对话框直接操作适配器
         dialog = JsonCodeEditorDialog(
             parent=self.window(),
-            title="JSON 代码编辑器",
+            title=gt("JSON 代码编辑器"),
             adapter=self.adapter
         )
         dialog.exec()

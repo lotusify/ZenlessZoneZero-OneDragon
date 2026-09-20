@@ -1,3 +1,4 @@
+from one_dragon.utils.i18_utils import gt
 from qfluentwidgets import FluentIcon
 
 from one_dragon.base.operation.one_dragon_context import OneDragonContext
@@ -15,7 +16,7 @@ class ImageProcessingInterface(PivotNavigatorInterface):
         PivotNavigatorInterface.__init__(
             self,
             object_name='image_processing_interface',
-            nav_text_cn='图像处理',
+            nav_text_cn=gt('图像处理'),
             nav_icon=FluentIcon.PHOTO,
             parent=parent,
         )

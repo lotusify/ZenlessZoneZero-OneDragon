@@ -15,7 +15,7 @@ class PythonInstallCard(WithExistedInstallCard):
         WithExistedInstallCard.__init__(
             self,
             ctx=ctx,
-            title_cn='Python 虚拟环境',
+            title_cn=gt('Python 虚拟环境'),
             install_method=ctx.python_service.uv_install_python_venv,
         )
 

@@ -32,11 +32,11 @@ class PasswordSwitchSettingCard(SettingCardBase, AdapterInitMixin):
                  off_text_cn: str = "关",
                  extra_btn: QWidget | None = None,
                  parent=None,
-                 password_hint: str = "请输入密码",
+                 password_hint: str = gt("请输入密码"),
                  password_hash: str = "",
-                 dialog_title: str = "提示",
-                 dialog_content: str = "密码错误，请重新输入",
-                 dialog_button_text: str = "确定",
+                 dialog_title: str = gt("提示"),
+                 dialog_content: str = gt("密码错误，请重新输入"),
+                 dialog_button_text: str = gt("确定"),
                  reverse_mode: bool = False):
 
         SettingCardBase.__init__(

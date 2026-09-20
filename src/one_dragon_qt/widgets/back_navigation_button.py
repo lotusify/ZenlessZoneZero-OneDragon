@@ -1,3 +1,4 @@
+from one_dragon.utils.i18_utils import gt
 from PySide6.QtCore import QRectF
 from PySide6.QtGui import QColor, QPainter
 from qfluentwidgets import FluentIcon, FluentIconBase, drawIcon, themeColor
@@ -15,7 +16,7 @@ class BackNavigationButton(NavigationToggleButton):
             icon_off=FluentIcon.RETURN,
             icon_on=FluentIcon.RETURN,
             tooltip_off='',
-            tooltip_on='返回',
+            tooltip_on=gt('返回'),
             on_click=on_click,
             parent=parent,
         )

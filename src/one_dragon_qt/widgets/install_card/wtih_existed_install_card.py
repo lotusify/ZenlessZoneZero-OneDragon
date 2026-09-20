@@ -17,8 +17,8 @@ class WithExistedInstallCard(BaseInstallCard):
                  title_cn: str,
                  install_method: Callable[[Callable[[float, str], None]], Tuple[bool, str]],
                  install_btn_icon: FluentIcon = FluentIcon.DOWN,
-                 install_btn_text_cn: str = '默认安装',
-                 content_cn: str = '未安装'):
+                 install_btn_text_cn: str = gt('默认安装'),
+                 content_cn: str = gt('未安装')):
         self.existed_btn = PushButton(FluentIcon.FOLDER, gt('选择已有'))
         self.existed_btn.clicked.connect(self.choose_existed_file)
 
@@ -47,7 +47,7 @@ class WithExistedInstallCard(BaseInstallCard):
                                                    filter="Exe (*.exe)",
                                                    )
         if file_path is not None and file_path.endswith('.exe'):
-            log.info('选择路径 %s', file_path)
+            log.info(gt('选择路径 %s'), file_path)
             self.on_existed_chosen(os.path.normpath(file_path))
 
     def get_existed_os_path(self) -> Optional[str]:

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from one_dragon.utils.i18_utils import gt
 from cv2.typing import MatLike
 from PySide6.QtCore import QTimer
 
@@ -100,7 +101,7 @@ class PipModeManager:
         try:
             self._do_poll()
         except Exception:
-            log.error('画中画轮询异常', exc_info=True)
+            log.error(gt('画中画轮询异常'), exc_info=True)
 
     def _do_poll(self) -> None:
         controller = self.ctx.controller
@@ -148,7 +149,7 @@ class PipModeManager:
         c = self._controller
         ctrl = PcScreenshotController(c.game_win, c.standard_width, c.standard_height)
         if ctrl.init_screenshot(c.screenshot_method) is None:
-            log.warning('画中画截图器初始化失败')
+            log.warning(gt('画中画截图器初始化失败'))
             return None
         return ctrl
 

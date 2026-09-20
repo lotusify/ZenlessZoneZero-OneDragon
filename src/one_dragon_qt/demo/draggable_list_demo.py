@@ -7,6 +7,7 @@
 支持主题切换功能。
 """
 
+from one_dragon.utils.i18_utils import gt
 import sys
 
 from PySide6.QtCore import Qt
@@ -70,16 +71,16 @@ class TaskItemWidget(CardWidget):
         layout.addWidget(self.title_label, 1)
 
         # 拖拽提示
-        self.drag_hint = CaptionLabel("☰ 拖拽调整顺序")
+        self.drag_hint = CaptionLabel(gt("☰ 拖拽调整顺序"))
         self.drag_hint.setStyleSheet("color: gray;")
         layout.addWidget(self.drag_hint)
 
     def _set_priority_style(self, priority: str):
         """设置优先级标签的样式"""
         priority_map = {
-            "高": ("🔴 高", "#d13438"),
-            "中": ("🟡 中", "#ff8c00"),
-            "低": ("🟢 低", "#107c10"),
+            "高": (gt("🔴 高"), "#d13438"),
+            "中": (gt("🟡 中"), "#ff8c00"),
+            "低": (gt("🟢 低"), "#107c10"),
         }
 
         if priority in priority_map:
@@ -108,20 +109,20 @@ class NoEffectDialog(MessageBoxBase):
     def __init__(self, parent=None):
         super().__init__(parent)
 
-        self.yesButton.setText("确定")
-        self.cancelButton.setText("取消")
+        self.yesButton.setText(gt("确定"))
+        self.cancelButton.setText(gt("取消"))
 
-        self.titleLabel = SubtitleLabel(text="DraggableList 对话框测试")
+        self.titleLabel = SubtitleLabel(text=gt("DraggableList 对话框测试"))
         self.viewLayout.addWidget(self.titleLabel)
 
         # 说明标签
         info_label = BodyLabel(
-            "此对话框用于测试 DraggableList 在 MessageBoxBase 中的表现。\n\n"
+            gt("此对话框用于测试 DraggableList 在 MessageBoxBase 中的表现。\n\n"
             "ℹ️ 技术说明：\n"
             "为避免在 MessageBoxBase 对话框中出现位置偏移，\n"
             "此列表在创建时设置了 enable_opacity_effect=False。\n\n"
             "✅ 主界面列表：启用透明度效果（默认），拖拽时会有淡入淡出动画\n"
-            "✅ 对话框列表：禁用透明度效果，避免位置偏移问题"
+            "✅ 对话框列表：禁用透明度效果，避免位置偏移问题")
         )
         info_label.setWordWrap(True)
         self.viewLayout.addWidget(info_label)
@@ -139,9 +140,9 @@ class NoEffectDialog(MessageBoxBase):
     def _add_test_tasks(self):
         """添加测试任务"""
         test_tasks = [
-            TaskItem("1", "对话框任务A", "高"),
-            TaskItem("2", "对话框任务B", "中"),
-            TaskItem("3", "对话框任务C", "低"),
+            TaskItem("1", gt("对话框任务A"), "高"),
+            TaskItem("2", gt("对话框任务B"), "中"),
+            TaskItem("3", gt("对话框任务C"), "低"),
         ]
 
         for task in test_tasks:
@@ -151,7 +152,7 @@ class NoEffectDialog(MessageBoxBase):
 
     def _on_order_changed(self, data_list: list):
         """顺序改变时的回调"""
-        print(f"对话框列表顺序已更新: {data_list}")
+        print(f"gt(对话框列表顺序已更新: ){data_list}")
 
 
 class DraggableListDemo(FluentWindow):
@@ -160,7 +161,7 @@ class DraggableListDemo(FluentWindow):
     def __init__(self) -> None:
         """初始化演示窗口"""
         super().__init__()
-        self.setWindowTitle("DraggableList - 可拖动列表演示")
+        self.setWindowTitle(gt("DraggableList - 可拖动列表演示"))
         self.resize(700, 500)  # 缩小高度以显示滚动条
 
         # 创建子界面
@@ -169,7 +170,7 @@ class DraggableListDemo(FluentWindow):
         self.addSubInterface(
             self.demo_interface,
             FluentIcon.MOVE,
-            "组件演示"
+            gt("组件演示")
         )
 
         # 创建布局
@@ -178,7 +179,7 @@ class DraggableListDemo(FluentWindow):
         layout.setContentsMargins(30, 30, 30, 30)
 
         # 创建主题切换按钮
-        self.theme_btn = PushButton("🌙 切换到暗色主题")
+        self.theme_btn = PushButton(gt(gt("🌙 切换到暗色主题")))
         self.theme_btn.clicked.connect(self._toggle_theme)
         layout.addWidget(self.theme_btn)
 
@@ -193,12 +194,12 @@ class DraggableListDemo(FluentWindow):
     def _create_demo_section(self, layout: QVBoxLayout) -> None:
         """创建组件演示区域"""
         # 标题
-        title_label = SubtitleLabel("DraggableList 组件演示")
+        title_label = SubtitleLabel(gt("DraggableList 组件演示"))
         layout.addWidget(title_label)
 
         # 说明
         info_label = BodyLabel(
-            "下方展示了可拖动列表组件的使用方法。\n\n"
+            gt("下方展示了可拖动列表组件的使用方法。\n\n"
             "✨ 功能特点：\n"
             "  • 支持拖拽交换列表项位置\n"
             "  • 支持自定义列表行内容\n"
@@ -216,13 +217,13 @@ class DraggableListDemo(FluentWindow):
             "📝 使用方法：\n"
             "  鼠标左键按住列表项，拖动到目标位置松开即可交换位置。\n"
             "  当拖动到滚动区域边缘时，列表会自动滚动。\n"
-            "  点击「打开对话框测试」按钮查看禁用透明效果的表现。"
+            "  点击「打开对话框测试」按钮查看禁用透明效果的表现。")
         )
         info_label.setWordWrap(True)
         layout.addWidget(info_label)
 
         # 创建可拖动列表
-        list_title = StrongBodyLabel("任务列表（可拖拽调整顺序，带滚动区域）")
+        list_title = StrongBodyLabel(gt("任务列表（可拖拽调整顺序，带滚动区域）"))
         layout.addWidget(list_title)
 
         # 创建滚动区域
@@ -247,7 +248,7 @@ class DraggableListDemo(FluentWindow):
         self._add_sample_tasks()
 
         # 显示当前顺序的标签
-        self.result_label = CaptionLabel("当前顺序: 已加载 10 个任务")
+        self.result_label = CaptionLabel(gt("当前顺序: 已加载 10 个任务"))
         self.result_label.setWordWrap(True)
         layout.addWidget(self.result_label)
 
@@ -255,15 +256,15 @@ class DraggableListDemo(FluentWindow):
         btn_layout = QHBoxLayout()
         btn_layout.setSpacing(10)
 
-        self.add_btn = PushButton("➕ 添加新任务")
+        self.add_btn = PushButton(gt("➕ 添加新任务"))
         self.add_btn.clicked.connect(self._add_new_task)
         btn_layout.addWidget(self.add_btn)
 
-        self.reset_btn = PushButton("🔄 重置列表")
+        self.reset_btn = PushButton(gt("🔄 重置列表"))
         self.reset_btn.clicked.connect(self._reset_list)
         btn_layout.addWidget(self.reset_btn)
 
-        self.test_dialog_btn = PushButton("🔍 打开对话框测试")
+        self.test_dialog_btn = PushButton(gt("🔍 打开对话框测试"))
         self.test_dialog_btn.clicked.connect(self._open_test_dialog)
         btn_layout.addWidget(self.test_dialog_btn)
 
@@ -272,16 +273,16 @@ class DraggableListDemo(FluentWindow):
     def _add_sample_tasks(self) -> None:
         """添加示例任务"""
         sample_tasks = [
-            TaskItem("1", "完成需求分析文档", "高"),
-            TaskItem("2", "设计系统架构", "高"),
-            TaskItem("3", "实现核心功能模块", "中"),
-            TaskItem("4", "编写单元测试", "中"),
-            TaskItem("5", "准备用户手册", "低"),
-            TaskItem("6", "代码审查和重构", "高"),
-            TaskItem("7", "性能优化", "中"),
-            TaskItem("8", "集成测试", "高"),
-            TaskItem("9", "部署上线", "高"),
-            TaskItem("10", "用户培训", "低"),
+            TaskItem("1", gt("完成需求分析文档"), "高"),
+            TaskItem("2", gt("设计系统架构"), "高"),
+            TaskItem("3", gt("实现核心功能模块"), "中"),
+            TaskItem("4", gt("编写单元测试"), "中"),
+            TaskItem("5", gt("准备用户手册"), "低"),
+            TaskItem("6", gt("代码审查和重构"), "高"),
+            TaskItem("7", gt("性能优化"), "中"),
+            TaskItem("8", gt("集成测试"), "高"),
+            TaskItem("9", gt("部署上线"), "高"),
+            TaskItem("10", gt("用户培训"), "低"),
         ]
 
         for task in sample_tasks:
@@ -293,14 +294,14 @@ class DraggableListDemo(FluentWindow):
         task_count = len(data_list)
         order_text = " → ".join([f"{task.title[:4]}..." for task in data_list[:5]])
         if task_count > 5:
-            order_text += f" → ... (共{task_count}项)"
+            order_text += f"gt( → ... (共){task_count}gt(项))"
 
-        self.result_label.setText(f"✅ 当前顺序 ({task_count}项):\n{order_text}")
+        self.result_label.setText(f"gt(✅ 当前顺序 (){task_count}gt(项):\n){order_text}")
 
         # 显示成功提示
         InfoBar.success(
-            title="顺序已更新",
-            content="列表项位置已交换",
+            title=gt("顺序已更新"),
+            content=gt("列表项位置已交换"),
             orient=Qt.Orientation.Horizontal,
             isClosable=True,
             position=InfoBarPosition.TOP,
@@ -313,7 +314,7 @@ class DraggableListDemo(FluentWindow):
         task_count = self.drag_list.get_item_count()
         new_task = TaskItem(
             str(task_count + 1),
-            f"新任务 {task_count + 1}",
+            f"gt(新任务 ){task_count + 1}",
             "中"
         )
         widget = TaskItemWidget(new_task)
@@ -331,8 +332,8 @@ class DraggableListDemo(FluentWindow):
         self._on_order_changed(self.drag_list.get_data_list())
 
         InfoBar.info(
-            title="列表已重置",
-            content="已恢复为初始任务列表",
+            title=gt("列表已重置"),
+            content=gt("已恢复为初始任务列表"),
             orient=Qt.Orientation.Horizontal,
             isClosable=True,
             position=InfoBarPosition.TOP,
@@ -352,7 +353,7 @@ class DraggableListDemo(FluentWindow):
         if qconfig.theme == Theme.LIGHT:
             self.theme_btn.setText("🌙 切换到暗色主题")
         else:
-            self.theme_btn.setText("☀️ 切换到亮色主题")
+            self.theme_btn.setText(gt("☀️ 切换到亮色主题"))
 
     def _open_test_dialog(self) -> None:
         """打开测试对话框"""
@@ -361,8 +362,8 @@ class DraggableListDemo(FluentWindow):
 
         if result:
             InfoBar.success(
-                title="测试完成",
-                content="对话框测试已完成",
+                title=gt("测试完成"),
+                content=gt("对话框测试已完成"),
                 orient=Qt.Orientation.Horizontal,
                 isClosable=True,
                 position=InfoBarPosition.TOP,

@@ -28,10 +28,10 @@ class AllInstallCard(BaseInstallCard):
         BaseInstallCard.__init__(
             self,
             ctx=ctx,
-            title_cn='全部',
-            content_cn='请先查看安装指南再继续',
+            title_cn=gt('全部'),
+            content_cn=gt('请先查看安装指南再继续'),
             install_method=self.install_all,
-            install_btn_text_cn='一键安装',
+            install_btn_text_cn=gt('一键安装'),
             left_widgets=[guide_btn, self.run_btn]
         )
 
@@ -40,14 +40,14 @@ class AllInstallCard(BaseInstallCard):
         按顺序进行安装
         :return:
         """
-        log.info('一键安装 开始')
+        log.info(gt('一键安装 开始'))
         self.update_display(None, gt('安装中'))
         self.installing_idx = 0
         self._progress_callback = progress_callback  # 保存回调
         if progress_callback is not None:
             progress_callback(self.installing_idx / len(self.install_cards), gt('安装中'))
         self.install_cards[self.installing_idx].start_progress()
-        return True, '成功'
+        return True, gt('成功')
 
     def on_progress_done(self, success: bool, msg: str) -> None:
         """
@@ -72,7 +72,7 @@ class AllInstallCard(BaseInstallCard):
             self._progress_callback = None
             self.finished.emit(False)
         else:
-            log.info('一键安装 开始下一个')
+            log.info(gt('一键安装 开始下一个'))
             self.installing_idx += 1
             # 每次子卡片完成时调用回调
             if hasattr(self, '_progress_callback') and self._progress_callback is not None:
@@ -90,5 +90,5 @@ class AllInstallCard(BaseInstallCard):
         启动一条龙脚本
         :return:
         """
-        log.info('启动中...大约需要10+秒')
+        log.info(gt('启动中...大约需要10+秒'))
         app_utils.start_one_dragon(restart=True)
